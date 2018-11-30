@@ -13,13 +13,14 @@
     'use strict';
 
     var colors = {
-        tableGreyRow: "#353535"
+        tableGreyRow: "#2e2e2e",
+        whiteTextColor: "rgb(220, 220, 220)"
     };
 
 var style =
 `
 /* BACKGROUND/BORDER COLOR CHANGES */
-body, .roundbox, .bottom-links {
+body, .roundbox, .bottom-links, .datatable td:not(.dark), .datatable th {
     background-color: #1e1e1e !important;
 }
 
@@ -37,6 +38,7 @@ div.ttypography .bordertable thead th:not(:last-child){
 
 .search, .ac_input, input[type="text"]{
     background-color: #383838 !important;
+    border-color: #383838 !important;
 }
 
 .dark, .ttypography tbody tr:hover td{
@@ -56,17 +58,38 @@ div.ttypography .tt {
 }
 
 /* TEXT COLOR CHANGES */
-.info,
-.ttypography,
+.info /* below the blog headings */,
+.ttypography /* generic class */,
 .ttypography table,
 .ttypography h1, .ttypography h2, .ttypography h3, .ttypography h4, .ttypography h5, .ttypography h6,
 .right-meta,
-.tickLabel,
+.tickLabel /* the vertical and horizontal reading values on rating graph */,
 .personal-sidebar,
-.roundbox
+.roundbox /* almost all bordered boxes on the page */,
+#footer,
+.pagination /* at bottom of tables of /ratings */,
+#locationSelect /* country/org/city menu on top right of /ratings table */,
+#pageContent /* container for everything on the page except the topbar, sideboxes and logo */, #pageContent div:not(:first-child)
 {
-    color: rgb(220, 220, 220) !important;
+    color: ${colors.whiteTextColor} !important;
 }
+
+a:link:not(.rated-user), a:visited:not(.rated-user) {
+    color: rgb(65, 131, 196) !important;
+}
+
+/* hack to increase specificity */
+a.red-link[href^="/contestRegistration"] {
+    background-color: #9a0000 !important;
+    color: ${colors.whiteTextColor} !important;
+}
+
+/* center a to fix formatting mishap as seen on https://codeforces.com/blog/entry/63505 and other related
+ company posts */
+.topic .content center a {
+    color: ${colors.whiteTextColor} !important;
+}
+
 
 .topic .title p {
     color: rgb(94, 146, 255) !important;
@@ -74,6 +97,14 @@ div.ttypography .tt {
 
 .caption.titled, .contest-state-phase {
     color: #6684c1 !important;
+}
+
+/* Datables on Gym, Submissions, Friends list, etc.*/
+/* its background color shows up as borders of the table */
+.datatable{
+    color: ${colors.whiteTextColor} !important;
+    border-radius: 5px;
+    background-color: #585858 !important;
 }
 
 /* OTHER CHANGES */
@@ -85,8 +116,9 @@ div.ttypography .tt {
     font-weight: bold;
 }
 
-.roundbox-lt, .roundbox-lb, .roundbox-rt, .roundbox-rb{
-    display: none;
+.roundbox-lt, .roundbox-lb, .roundbox-rt, .roundbox-rb,
+.datatable .lt, .datatable .lb, .datatable .rt, .datatable .rb, .datatable .ilt, .datatable .irt {
+    display: none !important;
 }
 
 .bottom-links {
@@ -99,10 +131,6 @@ div.ttypography .tt {
 }
 
 /* RATING COLOR CHANGES*/
-
-a:link:not(.rated-user), a:visited:not(.rated-user){
-    color: rgb(65, 131, 196) !important;
-}
 
 /* need to prefix overrides with tag name
  precedence woes :( */
@@ -136,6 +164,10 @@ tr.user-blue td, span.user-blue, a.user-blue{
         elm.style.color = "white";
 
         obs.observe(elm, {attributes: true});
+    });
+
+    applyFuncWhenElmLoaded(".datatable div:nth-child(5)", function(elm){
+        elm.classList.add("dark");
     });
 
     function applyFuncWhenElmLoaded(sel, func){
