@@ -41,7 +41,7 @@ div.ttypography .bordertable thead th:not(:last-child){
     border-color: #383838 !important;
 }
 
-.dark, .ttypography tbody tr:hover td{
+.dark, .ttypography tbody tr:hover td, .status-frame-datatable tr td.dark {
     background-color: ${colors.tableGreyRow} !important;
 }
 
@@ -57,6 +57,41 @@ div.ttypography .tt {
     background-color: #333 !important;
 }
 
+.sidebar-menu ul li {
+    border: none !important;
+}
+
+.sidebar-menu ul li:hover {
+    border: 1px solid #2e2e2e !important;
+    background-color: #2e2e2e !important;
+}
+
+/* submissions page and contest front page */
+.problems tr.rejected-problem td.id {
+    border-left-color: #ffabab !important;
+}
+
+.problems tr.rejected-problem td.act {
+    background-color: #ffabab !important;
+}
+
+.problems tr.accepted-problem td.id {
+    border-left-color: rgb(178, 224, 159) !important;
+}
+
+.problems tr.accepted-problem td.act{
+    background-color: rgb(178, 224, 159) !important;
+}
+
+div.ttypography .MathJax {
+    -webkit-filter: invert(1) !important;
+    filter: invert(1)  !important;
+}
+
+div.ttypography a:hover, div.ttypography a:focus {
+    background-color: #020466 !important;
+}
+
 /* TEXT COLOR CHANGES */
 .info /* below the blog headings */,
 .ttypography /* generic class */,
@@ -69,13 +104,28 @@ div.ttypography .tt {
 #footer,
 .pagination /* at bottom of tables of /ratings */,
 #locationSelect /* country/org/city menu on top right of /ratings table */,
-#pageContent /* container for everything on the page except the topbar, sideboxes and logo */, #pageContent div:not(:first-child)
+#pageContent /* container for everything on the page except the topbar, sideboxes and logo */, #pageContent div:not(:first-child),
+body.notfoundpage h3 /* notfoundpage class courtesy of JS function below */
 {
     color: ${colors.whiteTextColor} !important;
 }
 
 a:link:not(.rated-user), a:visited:not(.rated-user) {
-    color: rgb(65, 131, 196) !important;
+    color: #4d9fef !important;
+}
+
+/* for problem tags on /problemset */
+a:link.notice {
+    color: grey !important;
+}
+
+div ul.menu-list li a:link, div ul.menu-list li a:visited {
+     color: white !important;
+}
+
+/* on submissions page */
+.verdict-rejected {
+    color: lightblue !important;
 }
 
 /* hack to increase specificity */
@@ -99,9 +149,13 @@ a.red-link[href^="/contestRegistration"] {
     color: #6684c1 !important;
 }
 
-/* Datables on Gym, Submissions, Friends list, etc.*/
+.input pre, .output pre{
+    color: white !important;
+}
+
+/* Datatables on Gym, Submissions, Friends list, etc.*/
 /* its background color shows up as borders of the table */
-.datatable{
+.datatable, .status-frame-datatable {
     color: ${colors.whiteTextColor} !important;
     border-radius: 5px;
     background-color: #585858 !important;
@@ -134,7 +188,7 @@ a.red-link[href^="/contestRegistration"] {
 
 /* need to prefix overrides with tag name
  precedence woes :( */
-span.legendary-user-first-letter, a.user-admin {
+span.legendary-user-first-letter, a.user-admin, a.user-black {
     color: #fff !important;
 }
 
@@ -175,6 +229,14 @@ tr.user-blue td, span.user-blue, a.user-blue{
         if(!elm) return setTimeout(applyFuncWhenElmLoaded, 100, sel, func);
         func(elm);
     }
+
+    (function detect404(){
+        applyFuncWhenElmLoaded("body > h3", function(elm){
+            if(elm.innerText.startsWith("The requested URL was not found on this server.")){
+                document.body.classList.add("notfoundpage");
+            }
+        });
+    })();
 
     (function fixFBPluginText(){
         /*var reg = /<span id="u_0_4" data-usprocessed="true"/,
