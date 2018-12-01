@@ -14,7 +14,8 @@
 
     var colors = {
         tableGreyRow: "#2e2e2e",
-        whiteTextColor: "rgb(220, 220, 220)"
+        whiteTextColor: "rgb(220, 220, 220)",
+        inputBoxBackgroundBorderColor: "#383838"
     };
 
 var style =
@@ -37,8 +38,8 @@ div.ttypography .bordertable thead th:not(:last-child){
 }
 
 .search, .ac_input, input[type="text"]{
-    background-color: #383838 !important;
-    border-color: #383838 !important;
+    background-color: ${colors.inputBoxBackgroundBorderColor} !important;
+    border-color: ${colors.inputBoxBackgroundBorderColor} !important;
 }
 
 .dark, .ttypography tbody tr:hover td, .status-frame-datatable tr td.dark {
@@ -90,6 +91,43 @@ div.ttypography .MathJax {
 
 div.ttypography a:hover, div.ttypography a:focus {
     background-color: #020466 !important;
+}
+
+/* markitup topic editor, make header and tag input boxes white */
+.miu-complete, input[name^="tag"].ac_input,
+#title,
+#comment
+{
+    background-color: ${colors.inputBoxBackgroundBorderColor} !important;
+    border-color: ${colors.inputBoxBackgroundBorderColor} !important;
+}
+
+/* user search button */
+input[type="submit"], input[type="button"], input[type="file"] {
+    color: ${colors.whiteTextColor} !important;
+    background: #4f4f4f !important;
+    border-color: #4f4f4f !important;
+}
+
+/* fix for google calendar */
+.CalendarPage_calendar {
+    filter: invert(90%) hue-rotate(180deg);
+    background: rgb(25, 25, 25);
+}
+
+.CalendarPage_calendar iframe{
+    margin-top: 0px !important;
+}
+
+/* topic editor */
+.miu-complete {
+    background: #fff !important; /* #fff gets inverted */
+    filter: invert(90%) hue-rotate(180deg);
+}
+
+/* fix CF logo's inverted colors */
+.miu-complete .markItUp .markItUpButton12 a {
+    filter: invert(90%) hue-rotate(180deg);
 }
 
 /* TEXT COLOR CHANGES */
