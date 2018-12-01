@@ -5,6 +5,7 @@
 // @author       Gaurang Tandon
 // @match        https://codeforces.com/*
 // @resource     desertCSS  https://github.com/google/code-prettify/raw/master/styles/desert.css
+// @resource     monokaiEditorTheme https://raw.githubusercontent.com/ajaxorg/ace/master/lib/ace/theme/monokai.css
 // @grant        GM_addStyle
 // @grant        GM_getResourceText
 // ==/UserScript==
@@ -21,7 +22,10 @@
 var style =
 `
 /* BACKGROUND/BORDER COLOR CHANGES */
-body, .roundbox, .bottom-links, .datatable td:not(.dark), .datatable th {
+body, .roundbox,
+.bottom-links,
+.datatable td:not(.dark), .datatable th,
+#facebox .content {
     background-color: #1e1e1e !important;
 }
 
@@ -130,6 +134,11 @@ input[type="submit"], input[type="button"], input[type="file"] {
     filter: invert(90%) hue-rotate(180deg);
 }
 
+textarea[name="input"], textarea[name="output"] {
+    background-color: #272822;
+    color: white;
+}
+
 /* TEXT COLOR CHANGES */
 .info /* below the blog headings */,
 .ttypography /* generic class */,
@@ -142,13 +151,16 @@ input[type="submit"], input[type="button"], input[type="file"] {
 #footer,
 .pagination /* at bottom of tables of /ratings */,
 #locationSelect /* country/org/city menu on top right of /ratings table */,
-#pageContent /* container for everything on the page except the topbar, sideboxes and logo */, #pageContent div:not(:first-child),
-body.notfoundpage h3 /* notfoundpage class courtesy of JS function below */
+#pageContent /* container for everything on the page except the topbar, sideboxes and logo */, #pageContent > div:not(:first-child),
+body.notfoundpage h3, /* notfoundpage class courtesy of JS function below */
+#facebox .content
 {
     color: ${colors.whiteTextColor} !important;
 }
 
-a:link:not(.rated-user), a:visited:not(.rated-user) {
+a:link:not(.rated-user), a:visited:not(.rated-user),
+span.verdict-unsuccessful-challenge /* unsuccessful hacking attempt */,
+span.cell-rejected /* rejected indicator on contests' standings */ {
     color: #4d9fef !important;
 }
 
@@ -178,7 +190,6 @@ a.red-link[href^="/contestRegistration"] {
     color: ${colors.whiteTextColor} !important;
 }
 
-
 .topic .title p {
     color: rgb(94, 146, 255) !important;
 }
@@ -187,7 +198,9 @@ a.red-link[href^="/contestRegistration"] {
     color: #6684c1 !important;
 }
 
-.input pre, .output pre{
+.input pre, .output pre,
+/* embedded submissions display */
+pre.input, pre.output, pre.answer, pre.checker, pre.diagnostics  {
     color: white !important;
 }
 
@@ -273,6 +286,26 @@ tr.user-blue td, span.user-blue, a.user-blue{
             if(elm.innerText.startsWith("The requested URL was not found on this server.")){
                 document.body.classList.add("notfoundpage");
             }
+        });
+    })();
+
+    (function fixAceEditor() {
+        applyFuncWhenElmLoaded("#editor", function(elm) {
+            var monokaiEditorThemeCSS = GM_getResourceText("monokaiEditorTheme"),
+                aceChromeClass = "ace-chrome";
+            GM_addStyle(monokaiEditorThemeCSS);
+            elm.classList.remove(aceChromeClass);
+            elm.classList.add("ace-monokai");
+
+            // using a mutationobserver to revert addition of class ace-chome
+            // goes into an infinite loop, presumably because the script run
+            // by codeforces adds it back
+            function checkAceClassRemoved(){
+                if(elm.classList.contains(aceChromeClass)){
+                    elm.classList.remove(aceChromeClass);
+                }
+            }
+            setInterval(checkAceClassRemoved, 200);
         });
     })();
 
