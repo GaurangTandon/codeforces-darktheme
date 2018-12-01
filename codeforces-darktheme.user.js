@@ -97,6 +97,19 @@ div.ttypography a:hover, div.ttypography a:focus {
     background-color: #020466 !important;
 }
 
+.registrants tbody tr th a img{
+     filter: invert(1);
+}
+
+/* issues/#7 */
+.datatable td.state[style^="back"]{
+    background-color: #4a4a4a !important;
+}
+
+.datatable td.state[style^="back"] .notice {
+    color: #cccccc !important;
+}
+
 /* markitup topic editor, make header and tag input boxes white */
 .miu-complete, input[name^="tag"].ac_input,
 #title,
@@ -233,6 +246,10 @@ pre.input, pre.output, pre.answer, pre.checker, pre.diagnostics  {
 
 .second-level-menu-list li {
     border-radius: 5px !important;
+}
+
+td.dark span[style^="color: #0000bb;"]{
+    color: #4e9fef !important;
 }
 
 /* RATING COLOR CHANGES*/
