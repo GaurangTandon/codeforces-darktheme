@@ -262,6 +262,11 @@ span.contest-state-regular, .countdown {
     color: white !important;
 }
 
+/* issues#6 */
+#vote-list-filterDifficultyLowerBorder li a.vote-item:hover, #vote-list-filterDifficultyLowerBorder {
+    filter: invert(1) hue-rotate(180deg);
+}
+
 /* OTHER CHANGES */
 .roundbox{
     border-radius: 5px;
