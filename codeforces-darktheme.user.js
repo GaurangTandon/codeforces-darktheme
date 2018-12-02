@@ -165,6 +165,16 @@ textarea[name="input"], textarea[name="output"] {
     color: white;
 }
 
+/* issues/#10 */
+.delete-resource-link, .close {
+    filter: invert(1);
+    background-color: #e0e0e0 !important;
+}
+
+.close_image{
+    opacity: 0.7 !important;
+}
+
 /* TEXT COLOR CHANGES */
 .info /* below the blog headings */,
 .ttypography /* generic class */,
