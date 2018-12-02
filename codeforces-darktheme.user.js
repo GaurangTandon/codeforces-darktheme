@@ -4,6 +4,7 @@
 // @description  dark theme for codeforces
 // @author       Gaurang Tandon
 // @match        https://codeforces.com/*
+// @match        https://calendar.google.com/calendar/embed
 // @resource     desertCSS  https://github.com/google/code-prettify/raw/master/styles/desert.css
 // @resource     monokaiEditorTheme https://raw.githubusercontent.com/ajaxorg/ace/master/lib/ace/theme/monokai.css
 // @grant        GM_addStyle
@@ -16,7 +17,8 @@
     var colors = {
         tableGreyRow: "#2e2e2e",
         whiteTextColor: "rgb(220, 220, 220)",
-        inputBoxBackgroundBorderColor: "#383838"
+        inputBoxBackgroundBorderColor: "#383838",
+        redColorJustPassesA11Y: "#ff3333"
     };
 
 var style =
@@ -41,13 +43,21 @@ div.ttypography .bordertable thead th:not(:last-child){
      border-right-color: #000;
 }
 
-.search, .ac_input, input[type="text"]{
+.search, .ac_input, input[name$="Difficulty"], input[type="text"],
+#title,
+#comment {
     background-color: ${colors.inputBoxBackgroundBorderColor} !important;
     border-color: ${colors.inputBoxBackgroundBorderColor} !important;
+    color: ${colors.whiteTextColor} !important;
 }
 
 .dark, .ttypography tbody tr:hover td, .status-frame-datatable tr td.dark {
     background-color: ${colors.tableGreyRow} !important;
+}
+
+div.ttypography tbody tr:hover th {
+     color: black !important;
+     border-color: black !important;
 }
 
 /* codeforces uses code.prettyprint element but desert.css looks for pre.prettyprint */
@@ -97,7 +107,7 @@ div.ttypography a:hover, div.ttypography a:focus {
     background-color: #020466 !important;
 }
 
-.registrants tbody tr th a img{
+table tbody tr th a img[alt^="Sort"] {
      filter: invert(1);
 }
 
@@ -111,9 +121,7 @@ div.ttypography a:hover, div.ttypography a:focus {
 }
 
 /* markitup topic editor, make header and tag input boxes white */
-.miu-complete, input[name^="tag"].ac_input,
-#title,
-#comment
+.miu-complete, input[name^="tag"].ac_input
 {
     background-color: ${colors.inputBoxBackgroundBorderColor} !important;
     border-color: ${colors.inputBoxBackgroundBorderColor} !important;
@@ -134,6 +142,11 @@ input[type="submit"], input[type="button"], input[type="file"] {
 
 .CalendarPage_calendar iframe{
     margin-top: 0px !important;
+}
+
+/* fix inverted google calendar logo */
+.logo-plus-button {
+     filter: invert(1) hue-rotate(180deg);
 }
 
 /* topic editor */
@@ -166,12 +179,14 @@ textarea[name="input"], textarea[name="output"] {
 #locationSelect /* country/org/city menu on top right of /ratings table */,
 #pageContent /* container for everything on the page except the topbar, sideboxes and logo */, #pageContent > div:not(:first-child),
 body.notfoundpage h3, /* notfoundpage class courtesy of JS function below */
-#facebox .content
+#facebox .content,
+.lang-chooser,
+.page-index.active
 {
     color: ${colors.whiteTextColor} !important;
 }
 
-a:link:not(.rated-user), a:visited:not(.rated-user),
+a:not(:link):not(.rated-user), a:link:not(.rated-user), a:visited:not(.rated-user),
 span.verdict-unsuccessful-challenge /* unsuccessful hacking attempt */,
 span.cell-rejected /* rejected indicator on contests' standings */ {
     color: #4d9fef !important;
@@ -179,7 +194,7 @@ span.cell-rejected /* rejected indicator on contests' standings */ {
 
 /* for problem tags on /problemset */
 a:link.notice {
-    color: grey !important;
+    color: #bababa !important;
 }
 
 div ul.menu-list li a:link, div ul.menu-list li a:visited {
@@ -208,7 +223,7 @@ a.red-link[href^="/contestRegistration"] {
 }
 
 .caption.titled, .contest-state-phase {
-    color: #6684c1 !important;
+    color: #91a5cd !important;
 }
 
 .input pre, .output pre,
@@ -217,12 +232,24 @@ pre.input, pre.output, pre.answer, pre.checker, pre.diagnostics  {
     color: white !important;
 }
 
+span.contest-state-regular, .countdown {
+    color: #bababa !important;
+}
+
 /* Datatables on Gym, Submissions, Friends list, etc.*/
 /* its background color shows up as borders of the table */
 .datatable, .status-frame-datatable {
     color: ${colors.whiteTextColor} !important;
     border-radius: 5px;
     background-color: #585858 !important;
+}
+
+.personal-sidebar div:nth-child(2) ul li:nth-child(2) span{
+    color: #a8a8a8 !important;
+}
+
+.fix-tag-topic-contrast span a {
+    color: white !important;
 }
 
 /* OTHER CHANGES */
@@ -252,6 +279,15 @@ td.dark span[style^="color: #0000bb;"]{
     color: #4e9fef !important;
 }
 
+.datatable td.state a[href$="standings"] {
+    color: #8cc3f9 !important;
+}
+
+/* gym pages */
+div.setting-name {
+    color: #6c8bcc !important;
+}
+
 /* RATING COLOR CHANGES*/
 
 /* need to prefix overrides with tag name
@@ -264,6 +300,19 @@ span.legendary-user-first-letter, a.user-admin, a.user-black {
 tr.user-blue td, span.user-blue, a.user-blue{
     color: #757dff !important;
 }
+
+/* for a11y contrast coloring */
+a.user-red, a.user-legendary {
+    color: ${colors.redColorJustPassesA11Y} !important;
+}
+
+a.user-cyan{
+    color: #01bdb2 !important;
+}
+
+a.user-violet {
+    color: #ff6cff !important;
+}
 `;
 
     GM_addStyle(style);
@@ -274,16 +323,16 @@ tr.user-blue td, span.user-blue, a.user-blue{
     // some properties are added via element.style
     // need to override them via javascript
 
-    applyFuncWhenElmLoaded("#pageContent div div h3 a", function(elm){
+    applyFuncWhenElmLoaded(".comment-table.highlight-blue .right .ttypography p, .comment-table.highlight-blue .right .info", function(elm){
         var obs = new MutationObserver(function(mutationList, observer){
             mutationList.forEach(function(mutation){
                 console.log(mutation);
                 if(mutation.type == "attributes" && mutation.attributeName == "style"){
-                    elm.style.color = "white";
+                    elm.setAttribute("style", elm.getAttribute("style") + "; color: white !important; ");
                 }
             });
         });
-        elm.style.color = "white";
+        elm.setAttribute("style", elm.getAttribute("style") + "; color: white !important; ");
 
         obs.observe(elm, {attributes: true});
     });
@@ -292,10 +341,14 @@ tr.user-blue td, span.user-blue, a.user-blue{
         elm.classList.add("dark");
     });
 
+    // to avoid long FOUT duration
     function applyFuncWhenElmLoaded(sel, func){
         var elm = document.querySelector(sel);
         if(!elm) return setTimeout(applyFuncWhenElmLoaded, 100, sel, func);
-        func(elm);
+        if(Array.isArray(elm))
+            for(let i = 0, len = elm.length; i < len; i++)
+                func(elm[i]);
+        else func(elm);
     }
 
     (function detect404(){
@@ -322,8 +375,27 @@ tr.user-blue td, span.user-blue, a.user-blue{
                     elm.classList.remove(aceChromeClass);
                 }
             }
-            setInterval(checkAceClassRemoved, 200);
+            setInterval(checkAceClassRemoved, 10);
         });
+    })();
+
+    (function fixColorRedGreenContrast(){
+        if(document.readyState == "complete"){
+            var elms = document.querySelectorAll("*");
+            for(let i = 0, len = elms.length; i < len; i++){
+                if(getComputedStyle(elms[i]).color == "rgb(0, 128, 0)"){
+                    elms[i].setAttribute("style", elms[i].getAttribute("style") + "; color: #00c700 !important; ");
+                }
+            }
+
+            elms = document.querySelectorAll("font");
+            for(let i = 0, len = elms.length; i < len; i++){
+                if(elms[i].getAttribute("color") == "red"){
+                    elms[i].setAttribute("color", colors.redColorJustPassesA11Y);
+                }
+            }
+        }
+        else setTimeout(fixColorRedGreenContrast, 100);
     })();
 
     (function fixFBPluginText(){
