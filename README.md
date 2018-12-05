@@ -17,12 +17,15 @@ In case the script is updated later, you need not revisit the page. Tampermonkey
 
 1. **Rating color adjustments**: User handle colors needed to be reworked to be nice with the latest dark theme. That means the following colors now appear only ever so differently, but the sharp eyes amongst you may notice ;) These color adjustments are only meant to **improve contrast ratio of text** against a dark background.
 
-   - admins and non-rated users are now colored white (`#fff`) instead of black (`#000`). The first letter of legendary users is now also white instead of black.
-   - Grandmaster users are now colored ![#ff3333](https://placehold.it/15/ff3333/000000?text=+) `#ff3333` instead of the usual ![violet](https://placehold.it/15/ff0000/000000?text=+) red.
-   - candidate master users are now colored ![#ce8aff](https://placehold.it/15/ce8aff/000000?text=+) `#ce8aff` instead of the usual ![violet](https://placehold.it/15/aa00aa/000000?text=+) violet.
-   - expert users are now colored ![#757dff](https://placehold.it/15/757dff/000000?text=+) `#757dff` instead of the usual ![blue](https://placehold.it/15/0000ff/000000?text=+) blue.
-   - specialist users are now colored ![#01bdb2](https://placehold.it/15/01bdb2/000000?text=+) `#01bdb2` instead of the usual ![cyan](https://placehold.it/15/03A89E/000000?text=+) cyan (`#03a89e`).
-   - pupil users are now colored ![#00c700](https://placehold.it/15/00c700/000000?text=+) `#00c700` instead of the usual ![247d00](https://placehold.it/15/247d00/000000?text=+) green (`#00d700`).
+   |users|original color|new color|
+   |---|---|:---:|
+   |admins, non-rated, first letter of legendary|black (`#000`)|white (`#fff`)|
+   |Grandmaster|![red](https://placehold.it/15/ff0000/000000?text=+) red|![#ff3333](https://placehold.it/15/ff3333/000000?text=+) `#ff3333`|
+   |Candidate master|![violet](https://placehold.it/15/aa00aa/000000?text=+) violet|![#ce8aff](https://placehold.it/15/ce8aff/000000?text=+) `#ce8aff`|
+   |Expert|![blue](https://placehold.it/15/0000ff/000000?text=+) blue|![#757dff](https://placehold.it/15/757dff/000000?text=+) `#757dff`|
+   |Specialist|![cyan](https://placehold.it/15/03A89E/000000?text=+) cyan (`#03a89e`)|![#01bdb2](https://placehold.it/15/01bdb2/000000?text=+) `#01bdb2`|
+   |Pupil|![247d00](https://placehold.it/15/247d00/000000?text=+) green (`#00d700`)|![#00c700](https://placehold.it/15/00c700/000000?text=+) `#00c700`|
+
    
 
 ## External dependencies
