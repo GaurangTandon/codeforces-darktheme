@@ -4,7 +4,7 @@
 // @description  dark theme for codeforces
 // @author       Gaurang Tandon
 // @match        https://codeforces.com/*
-// @match        https://calendar.google.com/calendar/embed
+// @match        https://calendar.google.com/calendar/embed*
 // @match        https://www.facebook.com/v2.8/plugins/like.php*
 // @resource     desertCSS  https://github.com/google/code-prettify/raw/master/styles/desert.css
 // @resource     monokaiEditorTheme https://raw.githubusercontent.com/ajaxorg/ace/master/lib/ace/theme/monokai.css
@@ -151,11 +151,6 @@ input[type="submit"], input[type="button"], input[type="file"] {
     margin-top: 0px !important;
 }
 
-/* fix inverted google calendar logo */
-.logo-plus-button {
-     filter: invert(1) hue-rotate(180deg);
-}
-
 /* topic editor */
 .miu-complete {
     background: #fff !important; /* #fff gets inverted */
@@ -232,8 +227,8 @@ a:link.notice {
     color: #bababa !important;
 }
 
-// the mathjax expressions that are
-// denoted by images
+/* the mathjax expressions that are
+ denoted by images */
 .tex-formula {
     filter: invert(1) hue-rotate(180deg);
 }
@@ -361,6 +356,19 @@ a.user-violet {
 }
 `;
 
+    if(window.self != window.top && /calendar\.google\.com/.test(window.self.location.hostname)){
+        // cannot add the other styles as they interfere with
+        // calendar's elements (since the selectors are so generic)
+        GM_addStyle(`
+/* google calendar logo, see #13 */
+div.logo-plus-button {
+    filter: invert(1) hue-rotate(180deg);
+}`);
+        // rest of the google calendar has already been inverted
+        // so return
+        return;
+    }
+
     GM_addStyle(style);
 
     var desertCSS = GM_getResourceText("desertCSS");
@@ -442,23 +450,5 @@ a.user-violet {
             }
         }
         else setTimeout(fixColorRedGreenContrast, 100);
-    })();
-
-    (function fixFBPluginText(){
-        /*var reg = /<span id="u_0_4" data-usprocessed="true"/,
-            m = window.innerHTML.match(reg);
-
-        if(!m) return setTimeout(fixFBPluginText, 100)
-
-        window.innerHTML =   */
-
-        // get CORS error :(
-        /*
-        var ifr = document.querySelector(".fb-like iframe"),
-            doc = ifr && ifr.contentWindow.document;
-        if(!doc || !doc.body || !doc.body.parentElement || !doc.body.parentElement.id) return setTimeout(fixFBPluginText, 100);
-
-        doc.querySelector("#u_0_4").style.color = "white";
-        */
     })();
 })();
