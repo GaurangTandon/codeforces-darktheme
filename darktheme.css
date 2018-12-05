@@ -62,8 +62,8 @@ pre {
 }
 
 /* during contest, own submissions's row needs to be highlighted */
-.datatable .highlighted-row td {
-    /* background-color: #000 !important; */
+.standings .highlighted-row td {
+    background-color: #13203a !important;
 }
 
 /* these are inline code blocks */
