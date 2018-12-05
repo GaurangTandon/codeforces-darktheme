@@ -15,3 +15,11 @@ Both are for dark theme syntax highlighting of code.
 
 1. [prettyprint's desert.css](https://github.com/google/code-prettify/blob/master/styles/desert.css), since Codeforces depends on the same library for formatting submission's display.
 2. [Ace editor's monokai.css](https://raw.githubusercontent.com/ajaxorg/ace/master/lib/ace/theme/monokai.css) since Codeforces' submission codebox uses the Ace editor.
+
+## Contribution guidelines
+
+Feel free to make a PR which clearly describes what issue is being fixed. Thus it may be better to first create an issue and then create a PR.
+
+## License
+
+MIT Licensed
