@@ -60,6 +60,10 @@ pre {
     background-color: #000 !important;
 }
 
+.problems tbody tr div a {
+    color: blue !important;
+}
+
 /* these are inline code blocks */
 div.ttypography .tt {
     color: #fff !important;

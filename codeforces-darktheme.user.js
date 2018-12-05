@@ -11,6 +11,7 @@
 // @resource     darkthemecss darktheme.css
 // @grant        GM_addStyle
 // @grant        GM_getResourceText
+// @run-at       document-start
 // ==/UserScript==
 
 (function() {
@@ -45,7 +46,7 @@ div.logo-plus-button {
 
 	// to avoid long FOUT duration
 	function applyFuncWhenElmLoaded(sel, func) {
-		var elm = document.querySelector(sel);
+		var elm = document.querySelectorAll(sel);
 		if (!elm) return setTimeout(applyFuncWhenElmLoaded, 100, sel, func);
 		if (Array.isArray(elm)) for (let i = 0, len = elm.length; i < len; i++) func(elm[i]);
 		else func(elm);
