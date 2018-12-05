@@ -25,6 +25,8 @@ In case the script is updated later, you need not revisit the page. Tampermonkey
    |Expert|![blue](https://placehold.it/15/0000ff/000000?text=+) blue|![#757dff](https://placehold.it/15/757dff/000000?text=+) `#757dff`|
    |Specialist|![cyan](https://placehold.it/15/03A89E/000000?text=+) cyan (`#03a89e`)|![#01bdb2](https://placehold.it/15/01bdb2/000000?text=+) `#01bdb2`|
    |Pupil|![247d00](https://placehold.it/15/247d00/000000?text=+) green (`#00d700`)|![#00c700](https://placehold.it/15/00c700/000000?text=+) `#00c700`|
+   
+   To view all the color changes at once, view the table on the [blog post "Second Revolution of Colors and Titles"](https://codeforces.com/blog/entry/20638).
 
    
 
