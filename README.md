@@ -1,6 +1,6 @@
 # Codeforces Dark Theme
 
-A dark theme for Codeforces.
+A dark theme for Codeforces. [**Click to install**](https://github.com/GaurangTandon/codeforces-darktheme/raw/master/codeforces-darktheme.user.js)
 
 ![screenshot of home page](./imgs/screenshot.png)
 
@@ -13,7 +13,7 @@ A dark theme for Codeforces.
 
 ## Notes
 
-The
+1. Rating color changes: WIP
 
 ## External dependencies
 
