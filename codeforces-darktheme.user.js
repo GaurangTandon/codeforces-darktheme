@@ -5,9 +5,7 @@
 // @author       Gaurang Tandon
 // @match        https://codeforces.com/*
 // @match        https://calendar.google.com/calendar/embed
-// @match        https://www.facebook.com/v2.8/plugins/like.php
-// @match        https://www.facebook.com/v2.8/plugins/like.php/
-// @match        https://www.facebook.com/v2.8/plugins/like.php/*
+// @match        https://www.facebook.com/v2.8/plugins/like.php*
 // @resource     desertCSS  https://github.com/google/code-prettify/raw/master/styles/desert.css
 // @resource     monokaiEditorTheme https://raw.githubusercontent.com/ajaxorg/ace/master/lib/ace/theme/monokai.css
 // @grant        GM_addStyle
@@ -24,8 +22,6 @@
         redColorJustPassesA11Y: "#ff3333",
         genericLinkBlueColor: "#4d9fef"
     };
-
-    console.log(window.location.hostname);
 
 var style =
 `
@@ -201,8 +197,9 @@ textarea[name="input"], textarea[name="output"] {
 #pageContent /* container for everything on the page except the topbar, sideboxes and logo */, #pageContent > div:not(:first-child),
 body.notfoundpage h3, /* notfoundpage class courtesy of JS function below */
 #facebox .content,
-.lang-chooser,
-.page-index.active
+.lang-chooser, /* top right country flags */
+.page-index.active,
+span#u_0_4 /* fb text like plugin */
 {
     color: ${colors.whiteTextColor} !important;
 }
@@ -376,7 +373,6 @@ a.user-violet {
     applyFuncWhenElmLoaded("#pageContent div div h3 a, .comment-table.highlight-blue .right .ttypography p, .comment-table.highlight-blue .right .info", function(elm){
         var obs = new MutationObserver(function(mutationList, observer){
             mutationList.forEach(function(mutation){
-                console.log(mutation);
                 if(mutation.type == "attributes" && mutation.attributeName == "style"){
                     elm.setAttribute("style", elm.getAttribute("style") + "; color: white !important; ");
                 }
