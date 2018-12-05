@@ -3,7 +3,8 @@
     --whiteTextColor: #dcdcdc;
     --inputBoxBackgroundBorderColor: #383838;
     --redColorJustPassesA11Y: #ff3333;
-    --genericLinkBlueColor: #4d9fef;
+    --genericLinkBlueColor: #21b0fd;
+    --genericLinkVisitedBlueColor: #9b88ff;
 }
 
 /* BACKGROUND/BORDER COLOR CHANGES */
@@ -174,6 +175,16 @@ textarea[name="output"] {
     opacity: 0.7 !important;
 }
 
+a:not(.rated-user),
+span.verdict-unsuccessful-challenge /* unsuccessful hacking attempt */,
+span.cell-rejected /* rejected indicator on contests' standings */ {
+    color: var(--genericLinkBlueColor) !important;
+}
+
+a:visited:not(.rated-user) {
+    color: var(--genericLinkVisitedBlueColor) !important;
+}
+
 /* TEXT COLOR CHANGES */
 .info /* below the blog headings */,
 .ttypography /* generic class */,
@@ -194,18 +205,6 @@ body.notfoundpage h3, /* notfoundpage class courtesy of JS function below */
 span#u_0_4 /* fb text like plugin */
  {
     color: var(--whiteTextColor) !important;
-}
-
-a:not(:link):not(.rated-user), a:link:not(.rated-user), a:visited:not(.rated-user),
-span.verdict-unsuccessful-challenge /* unsuccessful hacking attempt */,
-span.cell-rejected /* rejected indicator on contests' standings */ {
-    color: var(--genericLinkBlueColor) !important;
-}
-
-.problems td.left a:link:not(.rated-user),
-.problems td.right a:link:not(.rated-user),
-.problems tbody tr div a:link:not(.rated-user):not(.notice) {
-    color: blue !important;
 }
 
 ul.second-level-menu-list li:hover a:hover {
