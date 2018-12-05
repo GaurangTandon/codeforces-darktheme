@@ -5,6 +5,9 @@
 // @author       Gaurang Tandon
 // @match        https://codeforces.com/*
 // @match        https://calendar.google.com/calendar/embed
+// @match        https://www.facebook.com/v2.8/plugins/like.php
+// @match        https://www.facebook.com/v2.8/plugins/like.php/
+// @match        https://www.facebook.com/v2.8/plugins/like.php/*
 // @resource     desertCSS  https://github.com/google/code-prettify/raw/master/styles/desert.css
 // @resource     monokaiEditorTheme https://raw.githubusercontent.com/ajaxorg/ace/master/lib/ace/theme/monokai.css
 // @grant        GM_addStyle
@@ -18,8 +21,11 @@
         tableGreyRow: "#2e2e2e",
         whiteTextColor: "rgb(220, 220, 220)",
         inputBoxBackgroundBorderColor: "#383838",
-        redColorJustPassesA11Y: "#ff3333"
+        redColorJustPassesA11Y: "#ff3333",
+        genericLinkBlueColor: "#4d9fef"
     };
+
+    console.log(window.location.hostname);
 
 var style =
 `
@@ -63,6 +69,11 @@ div.ttypography tbody tr:hover th {
 /* codeforces uses code.prettyprint element but desert.css looks for pre.prettyprint */
 pre {
     background-color: #333 !important;
+}
+
+/* during contest, own submissions's row needs to be highlighted */
+.datatable .highlighted-row td{
+    background-color: #000 !important;
 }
 
 /* these are inline code blocks */
@@ -199,12 +210,35 @@ body.notfoundpage h3, /* notfoundpage class courtesy of JS function below */
 a:not(:link):not(.rated-user), a:link:not(.rated-user), a:visited:not(.rated-user),
 span.verdict-unsuccessful-challenge /* unsuccessful hacking attempt */,
 span.cell-rejected /* rejected indicator on contests' standings */ {
-    color: #4d9fef !important;
+    color: ${colors.genericLinkBlueColor} !important;
+}
+
+ul.second-level-menu-list li:hover a:hover {
+    color: #014486 !important;
+}
+
+ul.second-level-menu-list li:hover a:link {
+    color: #014486 !important;
+}
+
+li.selectedLava a:link {
+    color: #014486 !important;
+}
+
+ul.second-level-menu-list:hover li:hover:not(.selectedLava) + .selectedLava a:link
+/* ul.second-level-menu-list:hover li.selectedLava:not(:hover) a:link */ {
+    color: ${colors.genericLinkBlueColor} !important;
 }
 
 /* for problem tags on /problemset */
 a:link.notice {
     color: #bababa !important;
+}
+
+// the mathjax expressions that are
+// denoted by images
+.tex-formula {
+    filter: invert(1) hue-rotate(180deg);
 }
 
 div ul.menu-list li a:link, div ul.menu-list li a:visited {
@@ -338,7 +372,8 @@ a.user-violet {
     // some properties are added via element.style
     // need to override them via javascript
 
-    applyFuncWhenElmLoaded(".comment-table.highlight-blue .right .ttypography p, .comment-table.highlight-blue .right .info", function(elm){
+     // div div h3 a = the top header "@user's blog" whose color property is added via js
+    applyFuncWhenElmLoaded("#pageContent div div h3 a, .comment-table.highlight-blue .right .ttypography p, .comment-table.highlight-blue .right .info", function(elm){
         var obs = new MutationObserver(function(mutationList, observer){
             mutationList.forEach(function(mutation){
                 console.log(mutation);
