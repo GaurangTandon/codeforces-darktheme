@@ -202,6 +202,10 @@ span.cell-rejected /* rejected indicator on contests' standings */ {
     color: var(--genericLinkBlueColor) !important;
 }
 
+.problems tbody tr div a:link:not(.rated-user) {
+    color: blue !important;
+}
+
 ul.second-level-menu-list li:hover a:hover {
     color: #014486 !important;
 }

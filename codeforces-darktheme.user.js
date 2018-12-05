@@ -47,9 +47,8 @@ div.logo-plus-button {
 	// to avoid long FOUT duration
 	function applyFuncWhenElmLoaded(sel, func) {
 		var elm = document.querySelectorAll(sel);
-		if (!elm) return setTimeout(applyFuncWhenElmLoaded, 100, sel, func);
-		if (Array.isArray(elm)) for (let i = 0, len = elm.length; i < len; i++) func(elm[i]);
-		else func(elm);
+		if (!elm || elm.length == 0) return setTimeout(applyFuncWhenElmLoaded, 100, sel, func);
+		for (let i = 0, len = elm.length; i < len; i++) func(elm[i]);
 	}
 
 	// some properties are added via element.style
