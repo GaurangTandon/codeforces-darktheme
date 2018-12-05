@@ -1,8 +1,10 @@
 # Codeforces Dark Theme
 
-A dark theme built for Codeforces.
+A dark theme for Codeforces.
 
-**Built with accessibility in mind**: All colors used clear the minimum AA accessibility contrast ratio of 4.5:1, while most of them also clear the AAA contrast ratio of 7:1.
+![screenshot of home page](screenshot.png)
+
+**Accessibility in mind**: All colors used clear the minimum AA accessibility contrast ratio of 4.5:1, while most of them also clear the AAA contrast ratio of 7:1.
 
 ## Download instructions
 
@@ -22,4 +24,4 @@ Feel free to make a PR which clearly describes what issue is being fixed. Thus i
 
 ## License
 
-MIT Licensed
+MIT License attached.
