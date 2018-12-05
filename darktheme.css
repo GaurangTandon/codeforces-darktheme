@@ -4,7 +4,7 @@
     --inputBoxBackgroundBorderColor: #383838;
     --redColorJustPassesA11Y: #ff3333;
     --genericLinkBlueColor: #21b0fd;
-    --genericLinkVisitedBlueColor: #9b88ff;
+    --genericLinkVisitedBlueColor: #8ab1ff;
 }
 
 /* BACKGROUND/BORDER COLOR CHANGES */
@@ -59,10 +59,6 @@ pre {
 /* during contest, own submissions's row needs to be highlighted */
 .datatable .highlighted-row td {
     background-color: #000 !important;
-}
-
-.problems tbody tr div a {
-    color: blue !important;
 }
 
 /* these are inline code blocks */
@@ -175,17 +171,24 @@ textarea[name="output"] {
     opacity: 0.7 !important;
 }
 
-a:not(.rated-user),
+/* TEXT COLOR CHANGES */
+
+/* always write most specific selector first in a chain of selectors
+if they aren't mutually exclusive */
+.second-level-menu ul li a:link,
+.second-level-menu ul li a:visited,
 span.verdict-unsuccessful-challenge /* unsuccessful hacking attempt */,
-span.cell-rejected /* rejected indicator on contests' standings */ {
+span.cell-rejected /* rejected indicator on contests' standings */,
+a:not([href]):not(.rated-user),
+a:link:not(.rated-user) {
     color: var(--genericLinkBlueColor) !important;
 }
 
+/* all visited anchor elements  */
 a:visited:not(.rated-user) {
     color: var(--genericLinkVisitedBlueColor) !important;
 }
 
-/* TEXT COLOR CHANGES */
 .info /* below the blog headings */,
 .ttypography /* generic class */,
 .ttypography table,
@@ -202,8 +205,8 @@ body.notfoundpage h3, /* notfoundpage class courtesy of JS function below */
 #facebox .content,
 .lang-chooser, /* top right country flags */
 .page-index.active,
-span#u_0_4 /* fb text like plugin */
- {
+span#u_0_4, /* fb text like plugin */
+.menu-list-container ul li a {
     color: var(--whiteTextColor) !important;
 }
 
@@ -372,5 +375,5 @@ a.user-cyan {
 }
 
 a.user-violet {
-    color: #ff6cff !important;
+    color: #ce8aff !important;
 }
