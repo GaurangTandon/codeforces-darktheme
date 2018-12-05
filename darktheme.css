@@ -18,6 +18,10 @@ body,
     background-color: #1e1e1e !important;
 }
 
+.roundbox.highlight-blue {
+    background-color: hsl(240, 15%, 35%) !important;
+}
+
 .topic .content {
     border-left-color: #999 !important;
 }
@@ -114,10 +118,6 @@ table tbody tr th a img[alt^="Sort"] {
     background-color: #4a4a4a !important;
 }
 
-.datatable td.state[style^="back"] .notice {
-    color: #cccccc !important;
-}
-
 /* markitup topic editor, make header and tag input boxes white */
 .miu-complete,
 input[name^="tag"].ac_input {
@@ -173,6 +173,16 @@ textarea[name="output"] {
 }
 
 /* TEXT COLOR CHANGES */
+
+/* the "-> Attention" box on old problems like this one
+ https://codeforces.com/problemset/problem/4/C */
+.roundbox.highlight-blue .caption.titled {
+    color: #ddddee !important;
+}
+
+.roundbox.highlight-blue .caption.titled + div {
+    color: rgb(230, 230, 230) !important;
+}
 
 /* always write most specific selector first in a chain of selectors
 if they aren't mutually exclusive */
@@ -288,6 +298,10 @@ span.contest-state-regular,
     color: var(--whiteTextColor) !important;
     border-radius: 5px;
     background-color: #585858 !important;
+}
+
+.datatable td.state[style^="back"] .notice {
+    color: #cccccc !important;
 }
 
 .personal-sidebar div:nth-child(2) ul li:nth-child(2) span {
