@@ -1,0 +1,367 @@
+:root {
+    --tableGreyRow: "#2e2e2e";
+    --whiteTextColor: "#dcdcdc";
+    --inputBoxBackgroundBorderColor: "#383838";
+    --redColorJustPassesA11Y: "#ff3333";
+    --genericLinkBlueColor: "#4d9fef";
+}
+
+/* BACKGROUND/BORDER COLOR CHANGES */
+body,
+.roundbox,
+.bottom-links,
+.datatable td:not(.dark),
+.datatable th,
+#facebox .content {
+    background-color: #1e1e1e !important;
+}
+
+.topic .content {
+    border-left-color: #999 !important;
+}
+
+.comment-table {
+    border-color: grey !important;
+}
+
+div.ttypography .bordertable thead th:not(:last-child) {
+    border-right-color: #000;
+}
+
+.search,
+.ac_input,
+input[name$="Difficulty"],
+input[type="text"],
+#title,
+#comment {
+    background-color: var(--inputBoxBackgroundBorderColor) !important;
+    border-color: var(--inputBoxBackgroundBorderColor) !important;
+    color: var(--whiteTextColor) !important;
+}
+
+.dark,
+.ttypography tbody tr:hover td,
+.status-frame-datatable tr td.dark {
+    background-color: var(--tableGreyRow) !important;
+}
+
+div.ttypography tbody tr:hover th {
+    color: black !important;
+    border-color: black !important;
+}
+
+/* codeforces uses code.prettyprint element but desert.css looks for pre.prettyprint */
+pre {
+    background-color: #333 !important;
+}
+
+/* during contest, own submissions's row needs to be highlighted */
+.datatable .highlighted-row td {
+    background-color: #000 !important;
+}
+
+/* these are inline code blocks */
+div.ttypography .tt {
+    color: #fff !important;
+    border-color: #333 !important;
+    background-color: #333 !important;
+}
+
+.sidebar-menu ul li {
+    border: none !important;
+}
+
+.sidebar-menu ul li:hover {
+    border: 1px solid #2e2e2e !important;
+    background-color: #2e2e2e !important;
+}
+
+/* submissions page and contest front page */
+.problems tr.rejected-problem td.id {
+    border-left-color: #ffabab !important;
+}
+
+.problems tr.rejected-problem td.act {
+    background-color: #ffabab !important;
+}
+
+.problems tr.accepted-problem td.id {
+    border-left-color: rgb(178, 224, 159) !important;
+}
+
+.problems tr.accepted-problem td.act {
+    background-color: rgb(178, 224, 159) !important;
+}
+
+div.ttypography .MathJax {
+    -webkit-filter: invert(1) !important;
+    filter: invert(1) !important;
+}
+
+div.ttypography a:hover,
+div.ttypography a:focus {
+    background-color: #020466 !important;
+}
+
+table tbody tr th a img[alt^="Sort"] {
+    filter: invert(1);
+}
+
+/* issues/#7 */
+.datatable td.state[style^="back"] {
+    background-color: #4a4a4a !important;
+}
+
+.datatable td.state[style^="back"] .notice {
+    color: #cccccc !important;
+}
+
+/* markitup topic editor, make header and tag input boxes white */
+.miu-complete,
+input[name^="tag"].ac_input {
+    background-color: var(--inputBoxBackgroundBorderColor) !important;
+    border-color: var(--inputBoxBackgroundBorderColor) !important;
+}
+
+/* user search button */
+input[type="submit"],
+input[type="button"],
+input[type="file"] {
+    color: var(--whiteTextColor) !important;
+    background: #4f4f4f !important;
+    border-color: #4f4f4f !important;
+}
+
+/* fix for google calendar */
+.CalendarPage_calendar {
+    filter: invert(90%) hue-rotate(180deg);
+    background: rgb(25, 25, 25);
+}
+
+.CalendarPage_calendar iframe {
+    margin-top: 0px !important;
+}
+
+/* topic editor */
+.miu-complete {
+    background: #fff !important; /* #fff gets inverted */
+    filter: invert(90%) hue-rotate(180deg);
+}
+
+/* fix CF logo's inverted colors */
+.miu-complete .markItUp .markItUpButton12 a {
+    filter: invert(90%) hue-rotate(180deg);
+}
+
+textarea[name="input"],
+textarea[name="output"] {
+    background-color: #272822;
+    color: white;
+}
+
+/* issues/#10 */
+.delete-resource-link,
+.close {
+    filter: invert(1);
+    background-color: #e0e0e0 !important;
+}
+
+.close_image {
+    opacity: 0.7 !important;
+}
+
+/* TEXT COLOR CHANGES */
+.info /* below the blog headings */,
+.ttypography /* generic class */,
+.ttypography table,
+.ttypography h1, .ttypography h2, .ttypography h3, .ttypography h4, .ttypography h5, .ttypography h6,
+.right-meta,
+.tickLabel /* the vertical and horizontal reading values on rating graph */,
+.personal-sidebar,
+.roundbox /* almost all bordered boxes on the page */,
+#footer,
+.pagination /* at bottom of tables of /ratings */,
+#locationSelect /* country/org/city menu on top right of /ratings table */,
+#pageContent /* container for everything on the page except the topbar, sideboxes and logo */, #pageContent > div:not(:first-child),
+body.notfoundpage h3, /* notfoundpage class courtesy of JS function below */
+#facebox .content,
+.lang-chooser, /* top right country flags */
+.page-index.active,
+span#u_0_4 /* fb text like plugin */
+ {
+    color: var(--whiteTextColor) !important;
+}
+
+a:not(:link):not(.rated-user), a:link:not(.rated-user), a:visited:not(.rated-user),
+span.verdict-unsuccessful-challenge /* unsuccessful hacking attempt */,
+span.cell-rejected /* rejected indicator on contests' standings */ {
+    color: var(--genericLinkBlueColor) !important;
+}
+
+ul.second-level-menu-list li:hover a:hover {
+    color: #014486 !important;
+}
+
+ul.second-level-menu-list li:hover a:link {
+    color: #014486 !important;
+}
+
+li.selectedLava a:link {
+    color: #014486 !important;
+}
+
+ul.second-level-menu-list:hover li:hover:not(.selectedLava) + .selectedLava a:link
+/* ul.second-level-menu-list:hover li.selectedLava:not(:hover) a:link */ {
+    color: var(--genericLinkBlueColor) !important;
+}
+
+/* for problem tags on /problemset */
+a:link.notice {
+    color: #bababa !important;
+}
+
+/* the mathjax expressions that are
+ denoted by images */
+.tex-formula {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+div ul.menu-list li a:link,
+div ul.menu-list li a:visited {
+    color: white !important;
+}
+
+/* on submissions page */
+.verdict-rejected {
+    color: lightblue !important;
+}
+
+/* hack to increase specificity */
+a.red-link[href^="/contestRegistration"] {
+    background-color: #9a0000 !important;
+    color: var(--whiteTextColor) !important;
+}
+
+/* center a to fix formatting mishap as seen on https://codeforces.com/blog/entry/63505 and other related
+ company posts */
+.topic .content center a {
+    color: var(--whiteTextColor) !important;
+}
+
+.topic .title p {
+    color: rgb(94, 146, 255) !important;
+}
+
+.caption.titled,
+.contest-state-phase {
+    color: #91a5cd !important;
+}
+
+.input pre, .output pre,
+/* embedded submissions display */
+pre.input, pre.output, pre.answer, pre.checker, pre.diagnostics {
+    color: white !important;
+}
+
+span.contest-state-regular,
+.countdown {
+    color: #bababa !important;
+}
+
+/* Datatables on Gym, Submissions, Friends list, etc.*/
+/* its background color shows up as borders of the table */
+.datatable,
+.status-frame-datatable {
+    color: var(--whiteTextColor) !important;
+    border-radius: 5px;
+    background-color: #585858 !important;
+}
+
+.personal-sidebar div:nth-child(2) ul li:nth-child(2) span {
+    color: #a8a8a8 !important;
+}
+
+.fix-tag-topic-contrast span a {
+    color: white !important;
+}
+
+/* issues#6 */
+#vote-list-filterDifficultyLowerBorder li a.vote-item:hover,
+#vote-list-filterDifficultyLowerBorder {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* OTHER CHANGES */
+.roundbox {
+    border-radius: 5px;
+}
+
+.ttypography h5 {
+    font-weight: bold;
+}
+
+.roundbox-lt,
+.roundbox-lb,
+.roundbox-rt,
+.roundbox-rb,
+.datatable .lt,
+.datatable .lb,
+.datatable .rt,
+.datatable .rb,
+.datatable .ilt,
+.datatable .irt {
+    display: none !important;
+}
+
+.bottom-links {
+    border-bottom-left-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+}
+
+.second-level-menu-list li {
+    border-radius: 5px !important;
+}
+
+td.dark span[style^="color: #0000bb;"] {
+    color: #4e9fef !important;
+}
+
+.datatable td.state a[href$="standings"] {
+    color: #8cc3f9 !important;
+}
+
+/* gym pages */
+div.setting-name {
+    color: #6c8bcc !important;
+}
+
+/* RATING COLOR CHANGES*/
+
+/* need to prefix overrides with tag name
+ precedence woes :( */
+span.legendary-user-first-letter,
+a.user-admin,
+a.user-black {
+    color: #fff !important;
+}
+
+/* tr for the rating tables page*/
+tr.user-blue td,
+span.user-blue,
+a.user-blue {
+    color: #757dff !important;
+}
+
+/* for a11y contrast coloring */
+a.user-red,
+a.user-legendary {
+    color: var(--redColorJustPassesA11Y) !important;
+}
+
+a.user-cyan {
+    color: #01bdb2 !important;
+}
+
+a.user-violet {
+    color: #ff6cff !important;
+}

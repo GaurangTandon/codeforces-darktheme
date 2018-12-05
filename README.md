@@ -6,12 +6,12 @@ A dark theme built for Codeforces.
 
 ## Download instructions
 
-1. Install Tampermonkey for your browser. [Instructions](https://tampermonkey.net/).
-2. [**Click this link**](https://github.com/GaurangTandon/codeforces-darktheme/raw/master/codeforces-darktheme.user.js) to install the dark theme.
+1. Install Tampermonkey for your browser. [Instructions here](https://tampermonkey.net/).
+2. [**Click this link**](https://github.com/GaurangTandon/codeforces-darktheme/raw/master/codeforces-darktheme.user.js) to install Codeforces dark theme.
 
-## External dependencies:
+## External dependencies
 
 Both are for dark theme syntax highlighting of code.
 
 1. [prettyprint's desert.css](https://github.com/google/code-prettify/blob/master/styles/desert.css), since Codeforces depends on the same library for formatting submission's display.
-2. [Ace editor's monokai CSS](https://raw.githubusercontent.com/ajaxorg/ace/master/lib/ace/theme/monokai.css) since Codeforces' submission codebox uses the Ace editor.
+2. [Ace editor's monokai.css](https://raw.githubusercontent.com/ajaxorg/ace/master/lib/ace/theme/monokai.css) since Codeforces' submission codebox uses the Ace editor.
