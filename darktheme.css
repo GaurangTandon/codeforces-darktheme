@@ -202,7 +202,9 @@ span.cell-rejected /* rejected indicator on contests' standings */ {
     color: var(--genericLinkBlueColor) !important;
 }
 
-.problems tbody tr div a:link:not(.rated-user) {
+.problems td.left a:link:not(.rated-user),
+.problems td.right a:link:not(.rated-user),
+.problems tbody tr div a:link:not(.rated-user):not(.notice) {
     color: blue !important;
 }
 
