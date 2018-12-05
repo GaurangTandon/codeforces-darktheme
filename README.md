@@ -2,7 +2,7 @@
 
 A dark theme for Codeforces.
 
-![screenshot of home page](screenshot.png)
+![screenshot of home page](./imgs/screenshot.png)
 
 **Accessibility in mind**: All colors used clear the minimum AA accessibility contrast ratio of 4.5:1, while most of them also clear the AAA contrast ratio of 7:1.
 
@@ -10,6 +10,10 @@ A dark theme for Codeforces.
 
 1. Install Tampermonkey for your browser. [Instructions here](https://tampermonkey.net/).
 2. [**Click this link**](https://github.com/GaurangTandon/codeforces-darktheme/raw/master/codeforces-darktheme.user.js) to install Codeforces dark theme.
+
+## Notes
+
+The
 
 ## External dependencies
 
