@@ -1,9 +1,9 @@
 :root {
-    --tableGreyRow: "#2e2e2e";
-    --whiteTextColor: "#dcdcdc";
-    --inputBoxBackgroundBorderColor: "#383838";
-    --redColorJustPassesA11Y: "#ff3333";
-    --genericLinkBlueColor: "#4d9fef";
+    --tableGreyRow: #2e2e2e;
+    --whiteTextColor: #dcdcdc;
+    --inputBoxBackgroundBorderColor: #383838;
+    --redColorJustPassesA11Y: #ff3333;
+    --genericLinkBlueColor: #4d9fef;
 }
 
 /* BACKGROUND/BORDER COLOR CHANGES */
