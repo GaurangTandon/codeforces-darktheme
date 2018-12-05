@@ -1,6 +1,6 @@
 :root {
     --tableGreyRow: #2e2e2e;
-    --whiteTextColor: #dcdcdc;
+    --whiteTextColor: rgb(200, 200, 200);
     --inputBoxBackgroundBorderColor: #383838;
     --redColorJustPassesA11Y: #ff3333;
     --genericLinkBlueColor: #21b0fd;
@@ -14,6 +14,7 @@ body,
 .datatable td:not(.dark),
 .datatable th,
 #facebox .content {
+    /* any value above this starts to look greyish */
     background-color: #1e1e1e !important;
 }
 
@@ -58,7 +59,7 @@ pre {
 
 /* during contest, own submissions's row needs to be highlighted */
 .datatable .highlighted-row td {
-    background-color: #000 !important;
+    /* background-color: #000 !important; */
 }
 
 /* these are inline code blocks */
