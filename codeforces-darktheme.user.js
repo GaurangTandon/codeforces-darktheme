@@ -43,6 +43,14 @@ div.logo-plus-button {
 	GM_addStyle(style);
 	GM_addStyle(desertCSS);
 
+	// to avoid long FOUT duration
+	function applyFuncWhenElmLoaded(sel, func) {
+		var elm = document.querySelector(sel);
+		if (!elm) return setTimeout(applyFuncWhenElmLoaded, 100, sel, func);
+		if (Array.isArray(elm)) for (let i = 0, len = elm.length; i < len; i++) func(elm[i]);
+		else func(elm);
+	}
+
 	// some properties are added via element.style
 	// need to override them via javascript
 
@@ -67,19 +75,19 @@ div.logo-plus-button {
 		elm.classList.add("dark");
 	});
 
-	// to avoid long FOUT duration
-	function applyFuncWhenElmLoaded(sel, func) {
-		var elm = document.querySelector(sel);
-		if (!elm) return setTimeout(applyFuncWhenElmLoaded, 100, sel, func);
-		if (Array.isArray(elm)) for (let i = 0, len = elm.length; i < len; i++) func(elm[i]);
-		else func(elm);
-	}
-
-	(function detect404() {
+	(function detect404Page() {
 		applyFuncWhenElmLoaded("body > h3", function(elm) {
 			if (elm.innerText.startsWith("The requested URL was not found on this server.")) {
 				document.body.classList.add("notfoundpage");
 			}
+		});
+	})();
+
+	(function fixLavaMenu() {
+		applyFuncWhenElmLoaded(".second-level-menu-list li.backLava", function(elm) {
+			elm.style.backgroundImage = "url(../imgs/lava-right2.png) !important";
+			elm.firstElementChild.style.backgroundImage = "url(../imgs/lava-left2.png) !important";
+			console.log(elm.style.backgroundImage);
 		});
 	})();
 
