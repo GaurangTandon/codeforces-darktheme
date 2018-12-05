@@ -85,8 +85,10 @@ div.logo-plus-button {
 
 	(function fixLavaMenu() {
 		applyFuncWhenElmLoaded(".second-level-menu-list li.backLava", function(elm) {
-			elm.style.backgroundImage = "url(./imgs/lava-right2.png) !important";
-			elm.firstElementChild.style.backgroundImage = "url(./imgs/lava-left2.png) !important";
+			elm.style.backgroundImage =
+				"url(https://github.com/GaurangTandon/codeforces-darktheme/raw/master/imgs/lava-right2.png)";
+			elm.firstElementChild.style.backgroundImage =
+				"url(https://github.com/GaurangTandon/codeforces-darktheme/raw/master/imgs/lava-left2.png)";
 			console.log(elm.style.backgroundImage);
 		});
 	})();
