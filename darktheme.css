@@ -56,6 +56,13 @@ div.ttypography tbody tr:hover th {
     border-color: black !important;
 }
 
+/* if the image is not transparent, this doesn't do anything. 
+but if it is transparent, it adds a white background to it to avoid messing 
+up its colors with the black background */
+img {
+    background-color: white !important;
+}
+
 /* codeforces uses code.prettyprint element but desert.css looks for pre.prettyprint */
 pre {
     background-color: #333 !important;
