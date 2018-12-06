@@ -18,6 +18,7 @@ body,
     background-color: #1e1e1e !important;
 }
 
+.spoiler-content,
 .roundbox.highlight-blue {
     background-color: hsl(240, 15%, 35%) !important;
 }
