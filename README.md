@@ -1,6 +1,6 @@
 # Codeforces Dark Theme
 
-A dark theme for Codeforces. [**Click to install**](https://github.com/GaurangTandon/codeforces-darktheme/raw/master/codeforces-darktheme.user.js) <sup>BETA</sup>
+A dark theme for Codeforces. [**Click to install**](https://github.com/GaurangTandon/codeforces-darktheme/raw/master/codeforces-darktheme.user.js) <sup>BETA</sup> (requires a userscript manager)
 
 ![screenshot of home page](./imgs/screenshot.png)
 
