@@ -386,7 +386,9 @@ div.setting-name {
 /* need to prefix overrides with tag name
  precedence woes :( */
 span.legendary-user-first-letter,
+span.user-admin,
 a.user-admin,
+span.user-black,
 a.user-black {
     color: #fff !important;
 }
@@ -399,15 +401,19 @@ a.user-blue {
 }
 
 /* for a11y contrast coloring */
+span.user-red,
 a.user-red,
+span.user-legendary,
 a.user-legendary {
     color: var(--redColorJustPassesA11Y) !important;
 }
 
+span.user-cyan,
 a.user-cyan {
     color: #01bdb2 !important;
 }
 
+span.user-violet,
 a.user-violet {
     color: #ce8aff !important;
 }
