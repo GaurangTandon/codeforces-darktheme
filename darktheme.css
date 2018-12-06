@@ -176,7 +176,8 @@ input[type="file"] {
 }
 
 textarea[name="input"],
-textarea[name="output"] {
+textarea[name="output"],
+#sourceCodeTextarea {
     background-color: #272822;
     color: white;
 }
