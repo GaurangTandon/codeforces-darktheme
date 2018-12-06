@@ -56,6 +56,11 @@ div.ttypography tbody tr:hover th {
     border-color: black !important;
 }
 
+/* disable link highlighting in attempt to improve readability */
+a {
+    text-decoration: none;
+}
+
 /* if the image is not transparent, this doesn't do anything. 
 but if it is transparent, it adds a white background to it to avoid messing 
 up its colors with the black background */
@@ -63,15 +68,18 @@ img {
     background-color: white !important;
 }
 
+/* all codeforces system hosted images already
+look good on the dark background, so revert them back */
+img[src^="//st.codeforces.com"],
+/* these images are not served from above domain */
+img[src$="/lightning-16x16.png"],
+img[src$="/ok-16x16.png"] {
+    background-color: rgba(255, 255, 255, 0) !important;
+}
+
 /* codeforces uses code.prettyprint element but desert.css looks for pre.prettyprint */
 pre {
     background-color: #333 !important;
-}
-
-/* all codeforces system hosted images already
-look good on the dark background, so revert them back */
-img[src^="//st.codeforces.com"] {
-    background-color: rgba(255, 255, 255, 0) !important;
 }
 
 /* during contest, own submissions's row needs to be highlighted */
@@ -106,11 +114,8 @@ div.ttypography .tt {
 }
 
 .problems tr.accepted-problem td.id {
-    border-left-color: rgb(178, 224, 159) !important;
-}
-
-.problems tr.accepted-problem td.act {
-    background-color: rgb(178, 224, 159) !important;
+    border-left-color: rgb(165, 216, 142) !important;
+    background-color: rgb(165, 216, 142) !important;
 }
 
 div.ttypography .MathJax {
