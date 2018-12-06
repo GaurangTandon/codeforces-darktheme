@@ -68,8 +68,25 @@ pre {
     background-color: #333 !important;
 }
 
+.topic .info img, /* the buttons above topic text */
+.topic .left-meta img, .topic  .right-meta img, /* the buttons below a topic text */
+img.toggle-favourite, /* on the sidebar of a problem */
+.personal-sidebar .for-avatar + div img, /* two buttons inside profile sidebar */
+.topic .content + div img, /* that image for tags */
+.lang-chooser img, /* top right */
+.standings-flag,
+img.closed, /* horizontal blue arrow that shows up everywhere */
+.recent-actions img, /* the sidebar displaying blog activity */
+.comments .title img, /* the comments speech bubble */
+a[href^="/profile"] img + img, /* the badges of honor */
+.info .main-info + ul img, /* profile page*/
+ {
+    background-color: rgba(255, 255, 255, 0) !important;
+}
+
 /* during contest, own submissions's row needs to be highlighted */
-.standings .highlighted-row td {
+.standings .highlighted-row td,
+.highlight-blue {
     background-color: #13203a !important;
 }
 
