@@ -84,9 +84,28 @@ pre {
 }
 
 /* during contest, own submissions's row needs to be highlighted */
-.standings .highlighted-row td,
+.standings tr.highlighted-row td,
+table tr.highlighted-row td,
 .highlight-blue {
     background-color: #13203a !important;
+}
+
+.standings .cell-accepted {
+    color: rgb(78, 209, 253) !important;
+}
+
+/* the following two rules are for accessibility */
+.standings .cell-challenged {
+    color: var(--redColorJustPassesA11Y) !important;
+}
+
+.standings .cell-passed-system-test {
+    color: #00c700 !important;
+}
+
+div.alert-success {
+    color: #0f5711 !important;
+    background-color: #87df63 !important;
 }
 
 /* these are inline code blocks */

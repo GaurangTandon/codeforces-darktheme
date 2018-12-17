@@ -25,6 +25,10 @@
 		genericLinkBlueColor: "#4d9fef"
 	};
 
+	function overrideStyleAttribute(elm, prop, value) {
+		elm.setAttribute("style", elm.getAttribute("style") + `; ${prop}: ${value} !important; `);
+	}
+
 	if (window.self != window.top && /calendar\.google\.com/.test(window.self.location.hostname)) {
 		// cannot add the other styles as they interfere with
 		// calendar's elements (since the selectors are so generic)
@@ -65,7 +69,7 @@ div.logo-plus-button {
 					}
 				});
 			});
-			elm.setAttribute("style", elm.getAttribute("style") + "; color: white !important; ");
+			overrideStyleAttribute(elm, "color", "white");
 
 			obs.observe(elm, { attributes: true });
 		}
@@ -89,7 +93,6 @@ div.logo-plus-button {
 				"url(https://github.com/GaurangTandon/codeforces-darktheme/raw/master/imgs/lava-right2.png)";
 			elm.firstElementChild.style.backgroundImage =
 				"url(https://github.com/GaurangTandon/codeforces-darktheme/raw/master/imgs/lava-left2.png)";
-			console.log(elm.style.backgroundImage);
 		});
 	})();
 
@@ -121,7 +124,7 @@ div.logo-plus-button {
 		var elms = document.querySelectorAll("*");
 		for (let i = 0, len = elms.length; i < len; i++) {
 			if (getComputedStyle(elms[i]).color == "rgb(0, 128, 0)") {
-				elms[i].setAttribute("style", elms[i].getAttribute("style") + "; color: #00c700 !important; ");
+				overrideStyleAttribute(elms[i], "color", "#00c700");
 			}
 		}
 
@@ -131,5 +134,19 @@ div.logo-plus-button {
 				elms[i].setAttribute("color", colors.redColorJustPassesA11Y);
 			}
 		}
+	})();
+
+	(function fixBlackTextInRightTableDuringContest() {
+		applyFuncWhenElmLoaded(".rtable span", function(elm) {
+			if (elm.style && elm.style.color == "rgb(0, 0, 0)")
+				overrideStyleAttribute(elm, "color", colors.whiteTextColor);
+		});
+	})();
+
+	// cannot override through css since specifity issue
+	(function improveLinkColorInGreenAlerts() {
+		applyFuncWhenElmLoaded("div.alert-success a", function(elm) {
+			overrideStyleAttribute(elm, "color", "#004794");
+		});
 	})();
 })();
