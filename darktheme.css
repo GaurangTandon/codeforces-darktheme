@@ -12,6 +12,7 @@ body,
 .roundbox,
 .bottom-links,
 .datatable td:not(.dark),
+.datatable td:not(.dark) div.dark,
 .datatable th,
 #facebox .content {
     /* any value above this starts to look greyish */
@@ -46,7 +47,8 @@ input[type="text"],
     color: var(--whiteTextColor) !important;
 }
 
-.dark,
+td.dark,
+td.dark div.dark,
 .ttypography tbody tr:hover td,
 .status-frame-datatable tr td.dark {
     background-color: var(--tableGreyRow) !important;
