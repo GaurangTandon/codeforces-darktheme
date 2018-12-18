@@ -219,6 +219,12 @@ textarea[name="output"],
 
 /* TEXT COLOR CHANGES */
 
+/* the error that appears when you try to submit binary data (like pdf)
+    to a problem */
+span.error {
+    color: var(--redColorJustPassesA11Y) !important;
+}
+
 /* the "-> Attention" box on old problems like this one
  https://codeforces.com/problemset/problem/4/C */
 .roundbox.highlight-blue .caption.titled {
