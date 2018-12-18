@@ -15,6 +15,7 @@ body,
 .datatable td:not(.dark),
 .datatable td:not(.dark) div.dark,
 .datatable th,
+.datatable > div.dark, /* the heading Problems on /problemset page */
 #facebox .content {
     /* any value above this starts to look greyish */
     background-color: var(--backgroundGreyColor) !important;
@@ -130,17 +131,20 @@ div.ttypography .tt {
 }
 
 /* submissions page and contest front page */
-.problems tr.rejected-problem td.id {
-    border-left-color: #ffabab !important;
-}
 
 .problems tr.rejected-problem td.act {
     background-color: #ffabab !important;
 }
 
+.problems tr.accepted-problem td.act {
+    background-color: #b5fd95 !important;
+}
+.problems tr.rejected-problem td.id {
+    border-left-color: #ffabab !important;
+}
+
 .problems tr.accepted-problem td.id {
-    border-left-color: rgb(165, 216, 142) !important;
-    background-color: rgb(165, 216, 142) !important;
+    border-left-color: #b5fd95 !important;
 }
 
 div.ttypography .MathJax {
