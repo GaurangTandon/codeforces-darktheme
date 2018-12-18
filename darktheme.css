@@ -1,4 +1,5 @@
 :root {
+    --backgroundGreyColor: #1e1e1e;
     --tableGreyRow: #2e2e2e;
     --whiteTextColor: rgb(200, 200, 200);
     --inputBoxBackgroundBorderColor: #383838;
@@ -16,7 +17,7 @@ body,
 .datatable th,
 #facebox .content {
     /* any value above this starts to look greyish */
-    background-color: #1e1e1e !important;
+    background-color: var(--backgroundGreyColor) !important;
 }
 
 .spoiler-content,
@@ -72,8 +73,10 @@ img {
 }
 
 /* all codeforces system hosted images already
-look good on the dark background, so revert them back */
-img[src^="//st.codeforces.com"],
+look good on the dark background, so revert them back
+EXCEPT the ajax loader image which blinks
+ */
+img[src^="//st.codeforces.com"]:not(.ajax-loading-gif),
 /* these images are not served from above domain */
 img[src$="/lightning-16x16.png"],
 img[src$="/ok-16x16.png"] {
