@@ -89,6 +89,12 @@ pre {
     background-color: #333 !important;
 }
 
+/* in the test display for hacks like this one 
+https://codeforces.com/contest/1092/hacks/511691/test */
+body > pre{
+    color: var(--whiteTextColor) !important;
+}
+
 /* during contest, own submissions's row needs to be highlighted */
 .standings tr.highlighted-row td,
 table tr.highlighted-row td,
