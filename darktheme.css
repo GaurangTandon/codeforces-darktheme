@@ -91,18 +91,20 @@ pre {
 
 /* in the test display for hacks like this one 
 https://codeforces.com/contest/1092/hacks/511691/test */
-body > pre{
+body > pre {
     color: var(--whiteTextColor) !important;
 }
 
 /* during contest, own submissions's row needs to be highlighted */
+.comment-table.highlight-blue,
 .standings tr.highlighted-row td,
 table tr.highlighted-row td,
 .highlight-blue {
     background-color: #13203a !important;
 }
 
-.standings .cell-accepted {
+.standings .cell-accepted,
+.standings .cell-accepted-locked {
     color: rgb(78, 209, 253) !important;
 }
 
