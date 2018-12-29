@@ -18,6 +18,9 @@ body,
 .datatable > div.dark, /* the heading Problems on /problemset page */
 #facebox .content {
     /* any value above this starts to look greyish */
+    /* need to overwrite background property as well
+        otherwise background-color gets overwritten */
+    background: var(--backgroundGreyColor) !important;
     background-color: var(--backgroundGreyColor) !important;
 }
 
