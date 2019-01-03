@@ -94,7 +94,9 @@ pre {
 
 /* in the test display for hacks like this one 
 https://codeforces.com/contest/1092/hacks/511691/test */
-body > pre {
+body > pre,
+/* for pre elements, on problems like 696B */
+div.ttypography pre {
     color: var(--whiteTextColor) !important;
 }
 
