@@ -5,7 +5,7 @@
     --inputBoxBackgroundBorderColor: #383838;
     /* ever so slightly pinkish but does the job well. 
     Decreasing lightness increases redness and increasing increases pinkness */
-    --redColorJustPassesA11Y: hsla(0, 100%, 64%, 1);
+    --redColorJustPassesA11Y: hsl(0, 100%, 64%);
     --genericLinkBlueColor: #21b0fd;
     --genericLinkVisitedBlueColor: #8ab1ff;
 }

@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Codeforces dark theme
-// @version      0.1.1
+// @version      1.0.0
 // @description  dark theme for codeforces
 // @author       Gaurang Tandon
 // @match        https://codeforces.com/*
