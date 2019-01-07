@@ -3,7 +3,9 @@
     --tableGreyRow: #2e2e2e;
     --whiteTextColor: rgb(200, 200, 200);
     --inputBoxBackgroundBorderColor: #383838;
-    --redColorJustPassesA11Y: #ff3333;
+    /* ever so slightly pinkish but does the job well. 
+    Decreasing lightness increases redness and increasing increases pinkness */
+    --redColorJustPassesA11Y: hsla(0, 100%, 64%, 1);
     --genericLinkBlueColor: #21b0fd;
     --genericLinkVisitedBlueColor: #8ab1ff;
 }
@@ -450,6 +452,7 @@ a.user-blue {
 }
 
 /* for a11y contrast coloring */
+tr.user-red td,
 span.user-red,
 a.user-red,
 span.user-legendary,
@@ -457,12 +460,20 @@ a.user-legendary {
     color: var(--redColorJustPassesA11Y) !important;
 }
 
+tr.user-cyan td,
 span.user-cyan,
 a.user-cyan {
     color: #01bdb2 !important;
 }
 
+tr.user-violet td,
 span.user-violet,
 a.user-violet {
     color: #ce8aff !important;
+}
+
+tr.user-gray td,
+span.user-gray,
+a.user-gray {
+    color: #8c8c8c !important;
 }
