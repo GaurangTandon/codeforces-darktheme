@@ -104,6 +104,7 @@ div.ttypography pre {
 
 /* during contest, own submissions's row needs to be highlighted */
 .comment-table.highlight-blue,
+.comment-table.highlight,
 .standings tr.highlighted-row td,
 table tr.highlighted-row td,
 .highlight-blue {
