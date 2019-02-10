@@ -3,7 +3,7 @@
     --tableGreyRow: #2e2e2e;
     --whiteTextColor: rgb(200, 200, 200);
     --inputBoxBackgroundBorderColor: #383838;
-    /* ever so slightly pinkish but does the job well. 
+    /* ever so slightly pinkish but does the job well.
     Decreasing lightness increases redness and increasing increases pinkness */
     --redColorJustPassesA11Y: hsl(0, 100%, 64%);
     --genericLinkBlueColor: #21b0fd;
@@ -18,7 +18,8 @@ body,
 .datatable td:not(.dark) div.dark,
 .datatable th,
 .datatable > div.dark, /* the heading Problems on /problemset page */
-#facebox .content {
+#facebox .content,
+.talk-content div[id^="history-text-content"] {
     /* any value above this starts to look greyish */
     /* need to overwrite background property as well
         otherwise background-color gets overwritten */
@@ -71,8 +72,8 @@ a {
     text-decoration: none;
 }
 
-/* if the image is not transparent, this doesn't do anything. 
-but if it is transparent, it adds a white background to it to avoid messing 
+/* if the image is not transparent, this doesn't do anything.
+but if it is transparent, it adds a white background to it to avoid messing
 up its colors with the black background */
 img {
     background-color: white !important;
@@ -94,7 +95,7 @@ pre {
     background-color: #333 !important;
 }
 
-/* in the test display for hacks like this one 
+/* in the test display for hacks like this one
 https://codeforces.com/contest/1092/hacks/511691/test */
 body > pre,
 /* for pre elements, on problems like 696B */
