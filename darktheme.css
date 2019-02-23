@@ -292,7 +292,8 @@ body.notfoundpage h3, /* notfoundpage class courtesy of JS function below */
 .lang-chooser, /* top right country flags */
 .page-index.active,
 span#u_0_4, /* fb text like plugin */
-.menu-list-container ul li a {
+.menu-list-container ul li a,
+#header h3 {
     color: var(--whiteTextColor) !important;
 }
 
