@@ -185,6 +185,7 @@ table tbody tr th a img[alt^="Sort"] {
 
 /* markitup topic editor, make header and tag input boxes white */
 .miu-complete,
+.miu-comment,
 input[name^="tag"].ac_input {
     background-color: var(--inputBoxBackgroundBorderColor) !important;
     border-color: var(--inputBoxBackgroundBorderColor) !important;
@@ -210,12 +211,14 @@ input[type="file"] {
 }
 
 /* topic editor */
-.miu-complete {
+.miu-complete,
+.miu-comment {
     background: #fff !important; /* #fff gets inverted */
     filter: invert(90%) hue-rotate(180deg);
 }
 
 /* fix CF logo's inverted colors */
+.miu-comment .markItUp .markItUpButton8 a,
 .miu-complete .markItUp .markItUpButton12 a {
     filter: invert(90%) hue-rotate(180deg);
 }
