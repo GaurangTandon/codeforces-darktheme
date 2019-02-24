@@ -108,7 +108,9 @@ div.ttypography pre {
 .comment-table.highlight,
 .standings tr.highlighted-row td,
 table tr.highlighted-row td,
-.highlight-blue {
+.highlight-blue,
+/* You have a new message*/
+.lang-chooser div[style^="background-color: #EAF4FF;"] {
     background-color: #13203a !important;
 }
 
@@ -186,7 +188,8 @@ table tbody tr th a img[alt^="Sort"] {
 /* markitup topic editor, make header and tag input boxes white */
 .miu-complete,
 .miu-comment,
-input[name^="tag"].ac_input {
+input[name^="tag"].ac_input,
+.send-talk-form table .wysiwyg {
     background-color: var(--inputBoxBackgroundBorderColor) !important;
     border-color: var(--inputBoxBackgroundBorderColor) !important;
 }
@@ -212,7 +215,8 @@ input[type="file"] {
 
 /* topic editor */
 .miu-complete,
-.miu-comment {
+.miu-comment,
+.send-talk-form table .wysiwyg {
     background: #fff !important; /* #fff gets inverted */
     filter: invert(90%) hue-rotate(180deg);
 }

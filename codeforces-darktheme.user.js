@@ -79,6 +79,11 @@ div.logo-plus-button {
 		elm.classList.add("dark");
 	});
 
+	// in this case !important doesn't workthrough css stylesheet
+	applyFuncWhenElmLoaded(".unread td", function(elm) {
+		elm.style.backgroundColor = "#13203a !important";
+	});
+
 	(function detect404Page() {
 		applyFuncWhenElmLoaded("body > h3", function(elm) {
 			if (elm.innerText.startsWith("The requested URL was not found on this server.")) {
