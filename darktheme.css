@@ -128,6 +128,11 @@ table tr.highlighted-row td,
     color: #00c700 !important;
 }
 
+/* improve contrast ratio on grey background */
+blockquote {
+    color: #a8a8a8 !important;
+}
+
 div.alert-success {
     color: #0f5711 !important;
     background-color: #87df63 !important;
