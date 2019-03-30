@@ -4,6 +4,7 @@
 // @description  dark theme for codeforces
 // @author       Gaurang Tandon
 // @match        https://codeforces.com/*
+// @match        http://codeforces.com/*
 // @match        https://calendar.google.com/calendar/embed*
 // @match        https://www.facebook.com/v2.8/plugins/like.php*
 // @resource     desertCSS  https://github.com/google/code-prettify/raw/master/styles/desert.css
