@@ -11,7 +11,13 @@ A dark theme for Codeforces. [**Click to install**](https://github.com/GaurangTa
 1. Install Tampermonkey for your browser. ([Instructions](https://tampermonkey.net/)).
 2. [**Click this link**](https://github.com/GaurangTandon/codeforces-darktheme/raw/master/codeforces-darktheme.user.js) to install Codeforces dark theme userscript.
 
-In case the script is updated later, you need not revisit the page. Tampermonkey auto fetches new updates every 24hrs by default.
+In case the script is updated later, you need not revisit the page. Tampermonkey auto fetches new updates every 24hrs by default. 
+
+In case you're getting this warning:
+
+> Apps, extensions, and user scripts can not be added from this website.
+
+This warning is mainly to prevent vulnerable users from installing malicious extensions and apps. In my case, you can trust this userscript as its code is posted on GitHub, under public scrutiny. So, you can safely ignore the warning and proceed with installation.
 
 ## Notes
 
