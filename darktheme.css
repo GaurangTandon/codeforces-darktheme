@@ -84,6 +84,7 @@ look good on the dark background, so revert them back
 EXCEPT the ajax loader image which blinks
  */
 img[src^="//st.codeforces.com"]:not(.ajax-loading-gif),
+img[src^="//sta.codeforces.com"]:not(.ajax-loading-gif),
 /* these images are not served from above domain */
 img[src$="/lightning-16x16.png"],
 img[src$="/ok-16x16.png"] {
