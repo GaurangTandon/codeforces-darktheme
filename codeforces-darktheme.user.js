@@ -1,13 +1,13 @@
 // ==UserScript==
 // @name         Codeforces dark theme
-// @version      1.0.3
+// @version      1.0.4
 // @description  dark theme for codeforces
 // @author       Gaurang Tandon
 // @match        https://codeforces.com/*
 // @match        http://codeforces.com/*
 // @match        https://calendar.google.com/calendar/embed*
 // @match        https://www.facebook.com/v2.8/plugins/like.php*
-// @resource     desertCSS  https://github.com/google/code-prettify/raw/master/styles/desert.css
+// @resource     desertCSS  desert.css
 // @resource     monokaiEditorTheme https://raw.githubusercontent.com/ajaxorg/ace/master/lib/ace/theme/monokai.css
 // @resource     darkthemecss darktheme.css
 // @grant        GM_addStyle
@@ -15,7 +15,7 @@
 // @run-at       document-start
 // ==/UserScript==
 
-(function() {
+(function () {
 	"use strict";
 
 	var colors = {
@@ -62,9 +62,9 @@ div.logo-plus-button {
 	// div div h3 a = the top header "@user's blog" whose color property is added via js
 	applyFuncWhenElmLoaded(
 		"#pageContent div div h3 a, .comment-table.highlight-blue .right .ttypography p, .comment-table.highlight-blue .right .info",
-		function(elm) {
-			var obs = new MutationObserver(function(mutationList, observer) {
-				mutationList.forEach(function(mutation) {
+		function (elm) {
+			var obs = new MutationObserver(function (mutationList, observer) {
+				mutationList.forEach(function (mutation) {
 					if (mutation.type == "attributes" && mutation.attributeName == "style") {
 						elm.setAttribute("style", elm.getAttribute("style") + "; color: white !important; ");
 					}
@@ -76,17 +76,17 @@ div.logo-plus-button {
 		}
 	);
 
-	applyFuncWhenElmLoaded(".datatable div:nth-child(5)", function(elm) {
+	applyFuncWhenElmLoaded(".datatable div:nth-child(5)", function (elm) {
 		elm.classList.add("dark");
 	});
 
 	// in this case !important doesn't workthrough css stylesheet
-	applyFuncWhenElmLoaded(".unread td", function(elm) {
+	applyFuncWhenElmLoaded(".unread td", function (elm) {
 		elm.style.backgroundColor = "#13203a !important";
 	});
 
 	(function detect404Page() {
-		applyFuncWhenElmLoaded("body > h3", function(elm) {
+		applyFuncWhenElmLoaded("body > h3", function (elm) {
 			if (elm.innerText.startsWith("The requested URL was not found on this server.")) {
 				document.body.classList.add("notfoundpage");
 			}
@@ -94,7 +94,7 @@ div.logo-plus-button {
 	})();
 
 	(function fixLavaMenu() {
-		applyFuncWhenElmLoaded(".second-level-menu-list li.backLava", function(elm) {
+		applyFuncWhenElmLoaded(".second-level-menu-list li.backLava", function (elm) {
 			elm.style.backgroundImage =
 				"url(https://github.com/GaurangTandon/codeforces-darktheme/raw/master/imgs/lava-right2.png)";
 			elm.firstElementChild.style.backgroundImage =
@@ -103,7 +103,7 @@ div.logo-plus-button {
 	})();
 
 	(function fixAceEditor() {
-		applyFuncWhenElmLoaded("#editor", function(elm) {
+		applyFuncWhenElmLoaded("#editor", function (elm) {
 			var monokaiEditorThemeCSS = GM_getResourceText("monokaiEditorTheme"),
 				aceChromeClass = "ace-chrome";
 			GM_addStyle(monokaiEditorThemeCSS);
@@ -143,7 +143,7 @@ div.logo-plus-button {
 	})();
 
 	(function fixBlackTextInRightTableDuringContest() {
-		applyFuncWhenElmLoaded(".rtable span", function(elm) {
+		applyFuncWhenElmLoaded(".rtable span", function (elm) {
 			if (elm.style && elm.style.color == "rgb(0, 0, 0)")
 				overrideStyleAttribute(elm, "color", colors.whiteTextColor);
 		});
@@ -151,7 +151,7 @@ div.logo-plus-button {
 
 	// cannot override through css since specifity issue
 	(function improveLinkColorInGreenAlerts() {
-		applyFuncWhenElmLoaded("div.alert-success a", function(elm) {
+		applyFuncWhenElmLoaded("div.alert-success a", function (elm) {
 			overrideStyleAttribute(elm, "color", "#004794");
 		});
 	})();
