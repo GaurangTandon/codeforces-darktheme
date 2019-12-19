@@ -93,11 +93,17 @@ div.logo-plus-button {
 		});
 	})();
     (function fixLogo() {
+		"#header > div:nth-child(1) > div > a > img"
 		applyFuncWhenElmLoaded("#header > div:nth-child(1) > a > img", function (elm) {
 			elm.src="https://raw.githubusercontent.com/venkycode/codeforces-darktheme/master/codeforces-logo-with-telegram.png";
 		});
 	})();
-
+	(function fixLogoHarbour() {
+		
+		applyFuncWhenElmLoaded("#header > div:nth-child(1) > div > a > img", function (elm) {
+			elm.src="https://raw.githubusercontent.com/venkycode/codeforces-darktheme/master/codeforces-logo-with-telegram.png";
+		});
+	})();
 	(function fixLavaMenu() {
 		applyFuncWhenElmLoaded(".second-level-menu-list li.backLava", function (elm) {
 			elm.style.backgroundImage =
