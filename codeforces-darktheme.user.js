@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         Codeforces dark theme
+// @name         Codeforces dark theme 1
 // @version      1.0.4
 // @description  dark theme for codeforces
 // @author       Gaurang Tandon
@@ -92,6 +92,13 @@ div.logo-plus-button {
 			}
 		});
 	})();
+
+	//(function fixLogo() {
+		//applyFuncWhenElmLoaded("#header > div:nth-child(1) > a > img", function (elm) {
+			//elm.src="https://raw.githubusercontent.com/venkycode/codeforces-darktheme/master/codeforces-logo-with-telegram.png";
+		//});
+	//})();
+
 
 	(function fixLavaMenu() {
 		applyFuncWhenElmLoaded(".second-level-menu-list li.backLava", function (elm) {
