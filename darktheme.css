@@ -303,7 +303,12 @@ body.notfoundpage h3, /* notfoundpage class courtesy of JS function below */
 .page-index.active,
 span#u_0_4, /* fb text like plugin */
 .menu-list-container ul li a,
-#header h3 {
+#header h3,
+/* on no connection page, only p and ul direct children are present #21 */
+body > p, body > ul
+/* #26 - score table on the right in contest page */
+
+{
     color: var(--whiteTextColor) !important;
 }
 
@@ -452,7 +457,7 @@ div.setting-name {
 
 /* need to prefix overrides with tag name
  precedence woes :( */
-span.legendary-user-first-letter,
+span.user-legendary::first-letter, a.user-legendary::first-letter,
 span.user-admin,
 a.user-admin,
 span.user-black,
