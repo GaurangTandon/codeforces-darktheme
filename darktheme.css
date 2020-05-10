@@ -187,9 +187,15 @@ table tbody tr th a img[alt^="Sort"] {
     filter: invert(1);
 }
 
-/* issues/#7 */
-.datatable td.state[style^="back"] {
+/* issues/#7, #28 */
+/* partially solved contest */
+.datatable td.state[style^="background-color: rgb(221, 238, 255);"] {
     background-color: #4a4a4a !important;
+}
+
+/* completely solved contest */
+.datatable td.state[style^="background-color: rgb(212, 237, 201);"] {
+    background-color: #005a07 !important;
 }
 
 /* markitup topic editor, make header and tag input boxes white */
