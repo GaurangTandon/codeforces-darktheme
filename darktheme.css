@@ -140,7 +140,8 @@ div.alert-success {
 }
 
 /* these are inline code blocks */
-div.ttypography .tt {
+div.ttypography .tt,
+.search-help code {
     color: #fff !important;
     border-color: #333 !important;
     background-color: #333 !important;
@@ -306,9 +307,7 @@ span#u_0_4, /* fb text like plugin */
 #header h3,
 /* on no connection page, only p and ul direct children are present #21 */
 body > p, body > ul
-/* #26 - score table on the right in contest page */
-
-{
+/* #26 - score table on the right in contest page */ {
     color: var(--whiteTextColor) !important;
 }
 
@@ -457,7 +456,8 @@ div.setting-name {
 
 /* need to prefix overrides with tag name
  precedence woes :( */
-span.user-legendary::first-letter, a.user-legendary::first-letter,
+span.user-legendary::first-letter,
+a.user-legendary::first-letter,
 span.user-admin,
 a.user-admin,
 span.user-black,
