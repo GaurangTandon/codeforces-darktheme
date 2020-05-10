@@ -504,3 +504,18 @@ span.user-gray,
 a.user-gray {
     color: #8c8c8c !important;
 }
+
+/* ins tag in compare window of submissions */
+/* for example, goto any submission and press Compare
+https://codeforces.com/contest/1352/submission/79514097 */
+div.diffHtmlTarget pre.prettyprint del[style^="background:#ff8080"] {
+    background: #7b1313 !important;
+}
+
+div.diffHtmlTarget pre.prettyprint ins[style^="background:#80ff80"] {
+    background: #004600 !important;
+}
+div.diffHtmlTarget pre.prettyprint ins[style^="background:#80ff80"] .lit {
+    /* tone down the red tokens in the green regions, to improve color contrast */
+    background: #ff9d9d !important;
+}
