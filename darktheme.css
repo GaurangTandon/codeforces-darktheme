@@ -11,7 +11,7 @@
 }
 
 /* BACKGROUND/BORDER COLOR CHANGES */
-body,
+body:not(.wysiwyg), /* wysiwyg is the textbox in the usertalk section, it's inside an iframe */
 .roundbox,
 .bottom-links,
 .datatable td:not(.dark),
@@ -400,7 +400,11 @@ span.contest-state-regular,
     color: #cccccc !important;
 }
 
-.personal-sidebar div:nth-child(2) ul li:nth-child(2) span {
+.personal-sidebar div ul.propertyLinks li:nth-child(2) span[style*="green"] {
+    color: #00c700 !important;
+}
+
+.personal-sidebar div ul.propertyLinks li:nth-child(2) span:not([style*="green"]) {
     color: #a8a8a8 !important;
 }
 
