@@ -72,10 +72,10 @@ a {
     text-decoration: none;
 }
 
-/* if the image is not transparent, this doesn't do anything.
-but if it is transparent, it adds a white background to it to avoid messing
-up its colors with the black background */
-img {
+/* if the image is transparent, it adds a white background to it to avoid messing
+up its colors with the black background
+only for logo headers in gyms, etc. */
+#header > div:first-child img, ._logo_div img, .sidebox img[alt="Logo"] {
     background-color: white !important;
 }
 
