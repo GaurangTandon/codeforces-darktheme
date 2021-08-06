@@ -1,15 +1,15 @@
 // ==UserScript==
 // @name         Codeforces dark mode
-// @version      1.0.8
+// @version      1.0.9
 // @description  Improved dark mode for Codeforces
 // @author       Gaurang Tandon & fork by David
 // @match        https://codeforces.com/*
 // @match        http://codeforces.com/*
 // @match        https://calendar.google.com/calendar/embed*
 // @match        https://www.facebook.com/v2.8/plugins/like.php*
-// @resource     desertCSS  desert.css
+// @resource     desertCSS  https://github.com/LordLava/codeforces-darktheme/raw/master/desert.css
 // @resource     monokaiEditorTheme https://raw.githubusercontent.com/ajaxorg/ace/master/lib/ace/theme/monokai.css
-// @resource     darkthemecss darktheme.css
+// @resource     darkthemecss https://github.com/LordLava/codeforces-darktheme/raw/master/darktheme.css
 // @grant        GM_addStyle
 // @grant        GM_getResourceText
 // @run-at       document-start
@@ -19,7 +19,7 @@
 	"use strict";
 
 	var colors = {
-		tableGreyRow: "#2e2e2e",
+		tableGreyRow: "#181818",
 		whiteTextColor: "rgb(255, 255, 255)",
 		inputBoxBackgroundBorderColor: "#383838",
 		redColorJustPassesA11Y: "#ff0000",
