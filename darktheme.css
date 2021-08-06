@@ -151,14 +151,7 @@ div.ttypography .tt,
     border: none !important;
 }
 .roundbox{border:1px solid #000000;position:relative}
-.datatable{
-    border-top: 1px solid #000000;
-    border-right: 1px solid #000000;
-    padding: .4em;
-    font-size: 1.3rem;
-    text-align: center;
-    overflow: hidden;
-}
+.datatable td,.datatable th{border-top: 1px solid #000000;border-right: 1px solid #000000;padding:.4em;font-size:1.3rem;text-align:center;overflow:hidden;}
 
 .sidebar-menu ul li:hover {
     border: 1px solid #2e2e2e !important;
