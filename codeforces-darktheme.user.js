@@ -20,7 +20,7 @@
 
 	var colors = {
 		tableGreyRow: "#181818",
-		whiteTextColor: "rgb(255, 255, 255)",
+		whiteTextColor: "rgb(240, 240, 240)",
 		inputBoxBackgroundBorderColor: "#383838",
 		redColorJustPassesA11Y: "#ff0000",
 		genericLinkBlueColor: "#00a6ff"
