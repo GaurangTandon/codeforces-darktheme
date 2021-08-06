@@ -1,6 +1,6 @@
 # Codeforces Dark Theme
 
-A dark theme for Codeforces. [**Click to install**](https://github.com/GaurangTandon/codeforces-darktheme/raw/master/codeforces-darktheme.user.js) (requires a userscript manager)
+A dark theme for Codeforces. [**Click to install**](https://github.com/LordLava/codeforces-darktheme/raw/master/codeforces-darktheme.user.js) (requires a userscript manager)
 
 ![screenshot of home page](./imgs/screenshot.png)
 
@@ -9,7 +9,7 @@ A dark theme for Codeforces. [**Click to install**](https://github.com/GaurangTa
 ## Download instructions
 
 1. Install Tampermonkey for your browser. ([Instructions](https://tampermonkey.net/)).
-2. [**Click this link**](https://github.com/GaurangTandon/codeforces-darktheme/raw/master/codeforces-darktheme.user.js) to install Codeforces dark theme userscript.
+2. [**Click this link**](https://github.com/LordLava/codeforces-darktheme/raw/master/codeforces-darktheme.user.js) to install Codeforces dark theme userscript.
 
 In case the script is updated later, you need not revisit the page. Tampermonkey auto fetches new updates every 24hrs by default. 
 
