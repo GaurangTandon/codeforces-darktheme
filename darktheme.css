@@ -159,18 +159,18 @@ div.ttypography .tt,
 /* submissions page and contest front page */
 
 .problems tr.rejected-problem td.act {
-    background-color: #ffabab !important;
+    background-color: #b52222 !important;
 }
 
 .problems tr.accepted-problem td.act {
-    background-color: #b5fd95 !important;
+    background-color: #58ca25!important;
 }
 .problems tr.rejected-problem td.id {
-    border-left-color: #ffabab !important;
+    border-left-color: #b52222 !important;
 }
 
 .problems tr.accepted-problem td.id {
-    border-left-color: #b5fd95 !important;
+    border-left-color: #58ca25 !important;
 }
 
 div.ttypography .MathJax {
