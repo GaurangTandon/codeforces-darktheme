@@ -26,7 +26,15 @@ body:not(.wysiwyg), /* wysiwyg is the textbox in the usertalk section, it's insi
     background: var(--backgroundGreyColor) !important;
     background-color: var(--backgroundGreyColor) !important;
 }
-
+element.style {
+    float: right;
+    border: 1px solid #000000;
+    width: 300px;
+    min-height: 150px;
+    padding: 12.5px;
+    position: relative;
+    margin-bottom: 1em;
+}
 .spoiler-content,
 .roundbox.highlight-blue {
     background-color: hsl(240, 15%, 35%) !important;
@@ -189,7 +197,7 @@ table tbody tr th a img[alt^="Sort"] {
     filter: invert(1);
 }
 
-/* issues/#7, #28 */
+
 /* partially solved contest */
 .datatable td.state[style^="background-color: rgb(221, 238, 255);"] {
     background-color: #2e2e2e !important;
