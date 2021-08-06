@@ -472,14 +472,14 @@ span.user-admin,
 a.user-admin,
 span.user-black,
 a.user-black {
-    color: #fff !important;
+    color: #000 !important;
 }
 
 /* tr for the rating tables page*/
 tr.user-blue td,
 span.user-blue,
 a.user-blue {
-    color: #757dff !important;
+    color: #00f !important;
 }
 
 /* for a11y contrast coloring */
@@ -500,7 +500,7 @@ a.user-cyan {
 tr.user-violet td,
 span.user-violet,
 a.user-violet {
-    color: #ce8aff !important;
+    color: #ac48f5 !important;
 }
 
 tr.user-gray td,
