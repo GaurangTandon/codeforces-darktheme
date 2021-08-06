@@ -192,14 +192,14 @@ table tbody tr th a img[alt^="Sort"] {
 /* issues/#7, #28 */
 /* partially solved contest */
 .datatable td.state[style^="background-color: rgb(221, 238, 255);"] {
-    background-color: #4a4a4a !important;
+    background-color: #2e2e2e !important;
 }
 
 /* completely solved contest */
 .datatable td.state[style^="background-color: rgb(212, 237, 201);"] {
     background-color: #005a07 !important;
 }
-
+.roundbox .rtable td,.roundbox .rtable th{border:1px solid #000000;border-right:none;border-top:none;padding:4px;text-align:center;font-size:.9em}
 /* markitup topic editor, make header and tag input boxes white */
 .miu-complete,
 .miu-comment,
