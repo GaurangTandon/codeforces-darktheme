@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Codeforces dark theme
+// @name         Codeforces dark mode
 // @version      1.0.8
-// @description  dark theme for codeforces
-// @author       Gaurang Tandon
+// @description  Improved dark mode for Codeforces
+// @author       Gaurang Tandon & fork by David
 // @match        https://codeforces.com/*
 // @match        http://codeforces.com/*
 // @match        https://calendar.google.com/calendar/embed*
@@ -20,10 +20,10 @@
 
 	var colors = {
 		tableGreyRow: "#2e2e2e",
-		whiteTextColor: "rgb(220, 220, 220)",
+		whiteTextColor: "rgb(255, 255, 255)",
 		inputBoxBackgroundBorderColor: "#383838",
-		redColorJustPassesA11Y: "#ff3333",
-		genericLinkBlueColor: "#4d9fef"
+		redColorJustPassesA11Y: "#ff0000",
+		genericLinkBlueColor: "#00a6ff"
 	};
 
 	function overrideStyleAttribute(elm, prop, value) {
@@ -96,9 +96,9 @@ div.logo-plus-button {
 	(function fixLavaMenu() {
 		applyFuncWhenElmLoaded(".second-level-menu-list li.backLava", function (elm) {
 			elm.style.backgroundImage =
-				"url(https://github.com/GaurangTandon/codeforces-darktheme/raw/master/imgs/lava-right2.png)";
+				"url(https://github.com/LordLava/codeforces-darktheme/raw/master/imgs/lava-right2.png)";
 			elm.firstElementChild.style.backgroundImage =
-				"url(https://github.com/GaurangTandon/codeforces-darktheme/raw/master/imgs/lava-left2.png)";
+				"url(https://github.com/LordLava/codeforces-darktheme/raw/master/imgs/lava-left2.png)";
 		});
 	})();
 
@@ -144,8 +144,9 @@ div.logo-plus-button {
 
 	(function fixBlackTextInRightTableDuringContest() {
 		applyFuncWhenElmLoaded(".rtable span", function (elm) {
-			if (elm.style && elm.style.color == "rgb(0, 0, 0)")
+			if (elm.style && elm.style.color == "rgb(0, 0, 0)"){
 				overrideStyleAttribute(elm, "color", colors.whiteTextColor);
+            }
 		});
 	})();
 

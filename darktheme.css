@@ -1,12 +1,12 @@
 :root {
-    --backgroundGreyColor: #1e1e1e;
+    --backgroundGreyColor: #181818;
     --tableGreyRow: #2e2e2e;
-    --whiteTextColor: rgb(200, 200, 200);
+    --whiteTextColor: rgb(255, 255, 255);
     --inputBoxBackgroundBorderColor: #383838;
-    /* ever so slightly pinkish but does the job well.
+    /* Changed to pure red
     Decreasing lightness increases redness and increasing increases pinkness */
-    --redColorJustPassesA11Y: hsl(0, 100%, 64%);
-    --genericLinkBlueColor: #21b0fd;
+    --redColorJustPassesA11Y: hsl(0, 100%, 50%);
+    --genericLinkBlueColor: #00a6ff;
     --genericLinkVisitedBlueColor: #8ab1ff;
 }
 
