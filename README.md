@@ -4,8 +4,6 @@ A dark theme for Codeforces. [**Click to install**](https://github.com/LordLava/
 
 ![screenshot of home page](./imgs/screenshot.png)
 
-**Accessibility in mind**: All colors used clear the minimum AA accessibility contrast ratio of 4.5:1, while most of them also clear the AAA contrast ratio of 7:1.
-
 ## Download instructions
 
 1. Install Tampermonkey for your browser. ([Instructions](https://tampermonkey.net/)).
