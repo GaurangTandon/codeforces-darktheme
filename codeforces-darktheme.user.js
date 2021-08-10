@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Codeforces dark mode
-// @version      1.0.9
+// @version      1.1.0
 // @description  Improved dark mode for Codeforces
 // @author       Gaurang Tandon & fork by David
 // @match        https://codeforces.com/*
