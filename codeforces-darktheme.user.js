@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Codeforces dark mode
-// @version      1.1.4
+// @version      1.1.5
 // @description  Improved dark mode for Codeforces
 // @author       Gaurang Tandon & fork by David
 // @match        https://codeforces.com/*
@@ -149,59 +149,7 @@ div.logo-plus-button {
             }
 		});
 	})();
-	(function() {var css = [
-		"img[src*=\"images/codeforces-vs-coronavirus-65.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"images/codeforces-logo-with-upper-gamma.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"codeforces-logo-with-telegram.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"honorcup-marathon-logo.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"technocup-logo-en.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"dasha-logo.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"kotlin_heroes_page_header-55.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"ffc2019-logo.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"acs2018.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"mailrucup-logo-70.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"star-vkcup-2015-300.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"lyft-5-logo-2.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"vkcup2018/star-vkcup-2018-300.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"acs2018.png.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"memsql-startcup3-logo.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"aimtech-logo.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"star-vkcup-2017-300.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"tinkoff-en-logo.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"playrix2017-logo-x.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"8vc/8vc-venturecup-logo.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"rcc15-logo.jpg\"] { filter: invert(0%); }",
-		"	img[src*=\"star-vkcup-2016-300.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"croc-champ-eng.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"wunderfund-logo.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"custom/croc-en.gif\"] { filter: invert(88.4%); }",
-		"	img[src*=\"memsql_logo_small.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"zepto2014/logo2.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"coder-strike-logo-04.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"rockethon/HZ-LOGO-TAG-RGB-small.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"bayan/bayan-logo.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"yandex-algorithm-en-logo.png\"] { filter: invert(88.4%); }",
-		"	img[src*=\"hsu.png\"] { filter: invert(88.4%); }"
-	].join("\n");
-	if (typeof GM_addStyle != "undefined") {
-		GM_addStyle(css);
-	} else if (typeof PRO_addStyle != "undefined") {
-		PRO_addStyle(css);
-	} else if (typeof addStyle != "undefined") {
-		addStyle(css);
-	} else {
-		var node = document.createElement("style");
-		node.type = "text/css";
-		node.appendChild(document.createTextNode(css));
-		var heads = document.getElementsByTagName("head");
-		if (heads.length > 0) {
-			heads[0].appendChild(node);
-		} else {
-			// no head yet, stick it whereever
-			document.documentElement.appendChild(node);
-		}
-	}
-	})();
+
 	// cannot override through css since specifity issue
 	(function improveLinkColorInGreenAlerts() {
 		applyFuncWhenElmLoaded("div.alert-success a", function (elm) {
