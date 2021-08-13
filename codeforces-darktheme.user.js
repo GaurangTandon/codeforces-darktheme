@@ -9,7 +9,7 @@
 // @match        https://www.facebook.com/v2.8/plugins/like.php*
 // @resource     desertCSS  https://github.com/LordLava/codeforces-darktheme/raw/master/desert.css
 // @resource     monokaiEditorTheme https://raw.githubusercontent.com/ajaxorg/ace/master/lib/ace/theme/monokai.css
-// @resource     darkthemecss https://github.com/LordLava/codeforces-darktheme/blob/master/darktheme_darknutella.css
+// @resource     darkthemecss https://github.com/LordLava/codeforces-darktheme/raw/master/darktheme.css
 // @grant        GM_addStyle
 // @grant        GM_getResourceText
 // @run-at       document-start
