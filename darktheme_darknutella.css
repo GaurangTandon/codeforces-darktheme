@@ -1,0 +1,527 @@
+:root {
+    --backgroundGreyColor: #181818;
+    --tableGreyRow: #1e1e1e;
+    --whiteTextColor: rgb(240, 240, 240);
+    --inputBoxBackgroundBorderColor: #383838;
+    /* Changed to pure red
+    Decreasing lightness increases redness and increasing increases pinkness */
+    --redColorJustPassesA11Y: hsl(0, 100%, 50%);
+    --genericLinkBlueColor: #00a6ff;
+    --genericLinkVisitedBlueColor: #8ab1ff;
+}
+
+/* BACKGROUND/BORDER COLOR CHANGES */
+body:not(.wysiwyg), /* wysiwyg is the textbox in the usertalk section, it's inside an iframe */
+.roundbox,
+.bottom-links,
+.datatable td:not(.dark),
+.datatable td:not(.dark) div.dark,
+.datatable th,
+.datatable > div.dark, /* the heading Problems on /problemset page */
+#facebox .content,
+.talk-content div[id^="history-text-content"] {
+    /* any value above this starts to look greyish */
+    /* need to overwrite background property as well
+        otherwise background-color gets overwritten */
+    background: var(--backgroundGreyColor) !important;
+    background-color: var(--backgroundGreyColor) !important;
+}
+.roundbox{border:1px solid #000000 !important;position:relative}.roundbox .caption{color:#3b5998 !important;font-size:1.5rem;font-weight:700;margin:.2em 0;position:relative}.roundbox .titled{padding:0 0 .3em .5em;border-bottom: 1px solid #000000 !important;}.roundbox .caption .top-links{font-size:1.1rem;font-family:arial;position:absolute;right:.5em;top:.3em}.roundbox .bottom-links{font-family:arial;font-size:1.1rem;border-top:1px solid #000000 !important;background-color:#181818 !important;padding:.45em}.roundbox .dark{background-color:#181818}.roundbox .bottom-links a{margin:.1em}.roundbox table.rtable{width:100%;margin-top:-4px;border:none}.roundbox .rtable td,.roundbox .rtable th{border:1px solid #000000 !important;border-right:none;border-top:none;padding:4px;text-align:center;font-size:.9em}.roundbox .rtable th{font-size:1em;padding-top:7px}.roundbox .rtable .left{border-left:none}.roundbox .rtable .bottom{border-bottom:none}.roundbox .rtable .corner{width:10px;height:10px}.roundbox .roundbox-lt{background:url(../images/roundbox/roundbox-lt.png) no-repeat top left;position:absolute;top:-1px;left:-1px}.roundbox .roundbox-rt{background:url(../images/roundbox/roundbox-rt.png) no-repeat top right;position:absolute;top:-1px;right:-1px}.roundbox .roundbox-lb{background:url(../images/roundbox/roundbox-lb.png) no-repeat bottom left;position:absolute;bottom:-1px;left:-1px}.roundbox .roundbox-rb{background:url(../images/roundbox/roundbox-rb.png) no-repeat bottom right;position:absolute;bottom:-1px;right:-1px}.rtable th{font-weight:700}
+.spoiler-content,
+.roundbox.highlight-blue {
+    background-color: hsl(240, 15%, 35%) !important;
+}
+
+.topic .content {
+    border-left-color: #999 !important;
+}
+
+.comment-table {
+    border-color: grey !important;
+}
+
+div.ttypography .bordertable thead th:not(:last-child) {
+    border-right-color: #000 !important;; 
+}
+
+.search,
+.ac_input,
+input[name$="Difficulty"],
+input[type="text"],
+#title,
+#comment {
+    background-color: var(--inputBoxBackgroundBorderColor) !important;
+    border-color: var(--inputBoxBackgroundBorderColor) !important;
+    color: var(--whiteTextColor) !important;
+}
+
+td.dark,
+td.dark div.dark,
+.ttypography tbody tr:hover td,
+.status-frame-datatable tr td.dark {
+    background-color: var(--tableGreyRow) !important;
+}
+
+div.ttypography tbody tr:hover th {
+    color: black !important;
+    border-color: black !important;
+}
+
+/* disable link highlighting in attempt to improve readability */
+a {
+    text-decoration: none;
+}
+
+/* if the image is transparent, it adds a white background to it to avoid messing
+up its colors with the black background
+only for logo headers in gyms, etc. */
+#header > div:first-child img, ._logo_div img, .sidebox img[alt="Logo"] {
+    background-color: white !important;
+}
+
+/* all codeforces system hosted images already
+look good on the dark background, so revert them back
+EXCEPT the ajax loader image which blinks
+ */
+img[src^="//st.codeforces.com"]:not(.ajax-loading-gif),
+img[src^="//sta.codeforces.com"]:not(.ajax-loading-gif),
+/* these images are not served from above domain */
+img[src$="/lightning-16x16.png"],
+img[src$="/ok-16x16.png"] {
+    background-color: rgba(255, 255, 255, 0) !important;
+}
+
+/* codeforces uses code.prettyprint element but desert.css looks for pre.prettyprint */
+pre {
+    background-color: #333 !important;
+}
+
+/* in the test display for hacks like this one
+https://codeforces.com/contest/1092/hacks/511691/test */
+body > pre,
+/* for pre elements, on problems like 696B */
+div.ttypography pre {
+    color: var(--whiteTextColor) !important;
+}
+
+/* during contest, own submissions's row needs to be highlighted */
+.comment-table.highlight-blue,
+.comment-table.highlight,
+.standings tr.highlighted-row td,
+table tr.highlighted-row td,
+.highlight-blue,
+/* You have a new message*/
+.lang-chooser div[style^="background-color: #EAF4FF;"] {
+    background-color: #13203a !important;
+}
+
+.standings .cell-accepted,
+.standings .cell-accepted-locked {
+    color: rgb(78, 209, 253) !important;
+}
+
+/* the following two rules are for accessibility */
+.standings .cell-challenged {
+    color: var(--redColorJustPassesA11Y) !important;
+}
+
+.standings .cell-passed-system-test {
+    color: #00c700 !important;
+}
+
+/* improve contrast ratio on grey background */
+blockquote {
+    color: #a8a8a8 !important;
+}
+
+div.alert-success {
+    color: #0f5711 !important;
+    background-color: #87df63 !important;
+}
+
+/* these are inline code blocks */
+div.ttypography .tt,
+.search-help code {
+    color: #fff !important;
+    border-color: #333 !important;
+    background-color: #333 !important;
+}
+
+.sidebar-menu ul li {
+    border: none !important;
+}
+.roundbox{border:1px solid #000000 !important;position:relative}
+.datatable td,.datatable th{border-top: 1px solid #000000 !important;border-right: 1px solid #000000 !important;padding:.4em;font-size:1.3rem;text-align:center;overflow:hidden;  }
+
+.sidebar-menu ul li:hover {
+    border: 1px solid #2e2e2e !important;
+    background-color: #2e2e2e !important;
+}
+
+/* submissions page and contest front page */
+
+.problems tr.rejected-problem td.act {
+    background-color: #b52222 !important;
+}
+
+.problems tr.accepted-problem td.act {
+    background-color: #58ca25!important;
+}
+.problems tr.rejected-problem td.id {
+    border-left-color: #b52222 !important;
+}
+
+.problems tr.accepted-problem td.id {
+    border-left-color: #58ca25 !important;
+}
+
+div.ttypography .MathJax {
+    -webkit-filter: invert(1) !important;
+    filter: invert(1) !important;
+}
+
+div.ttypography a:hover,
+div.ttypography a:focus {
+    background-color: #020466 !important;
+}
+
+table tbody tr th a img[alt^="Sort"] {
+    filter: invert(1);
+}
+
+
+/* partially solved contest */
+.datatable td.state[style^="background-color: rgb(221, 238, 255);"] {
+    background-color: #2e2e2e !important;
+}
+
+/* completely solved contest */
+.datatable td.state[style^="background-color: rgb(212, 237, 201);"] {
+    background-color: #005a07 !important;
+}
+.roundbox .rtable td,.roundbox .rtable th{border:1px solid #000000 !important;border-right:none;border-top:none;padding:4px;text-align:center;font-size:.9em}
+/* markitup topic editor, make header and tag input boxes white */
+.miu-complete,
+.miu-comment,
+input[name^="tag"].ac_input,
+.send-talk-form table .wysiwyg {
+    background-color: var(--inputBoxBackgroundBorderColor) !important;
+    border-color: var(--inputBoxBackgroundBorderColor) !important;
+}
+
+/* user search button */
+input[type="submit"],
+input[type="button"],
+input[type="file"] {
+    color: var(--whiteTextColor) !important;
+    background: #181818 !important;
+    border-color: #4f4f4f !important;
+}
+
+/* fix for google calendar */
+.CalendarPage_calendar {
+    filter: invert(90%) hue-rotate(180deg);
+    background: rgb(25, 25, 25);
+}
+
+.CalendarPage_calendar iframe {
+    margin-top: 0px !important;
+}
+
+/* topic editor */
+.miu-complete,
+.miu-comment,
+.send-talk-form table .wysiwyg {
+    background: #fff !important; /* #fff gets inverted */
+    filter: invert(90%) hue-rotate(180deg);
+}
+
+/* fix CF logo's inverted colors */
+.miu-comment .markItUp .markItUpButton8 a,
+.miu-complete .markItUp .markItUpButton12 a {
+    filter: invert(90%) hue-rotate(180deg);
+}
+
+textarea[name="input"],
+textarea[name="output"],
+#sourceCodeTextarea {
+    background-color: #272822;
+    color: white;
+}
+
+/* issues/#10 */
+.delete-resource-link,
+.close {
+    filter: invert(1);
+    background-color: #e0e0e0 !important;
+}
+
+.close_image {
+    opacity: 0.7 !important;
+}
+
+/* TEXT COLOR CHANGES */
+
+/* the error that appears when you try to submit binary data (like pdf)
+    to a problem */
+span.error {
+    color: var(--redColorJustPassesA11Y) !important;
+}
+
+/* the "-> Attention" box on old problems like this one
+ https://codeforces.com/problemset/problem/4/C */
+.roundbox.highlight-blue .caption.titled {
+    color: #ddddee !important;
+}
+
+.roundbox.highlight-blue .caption.titled + div {
+    color: rgb(230, 230, 230) !important;
+}
+
+/* always write most specific selector first in a chain of selectors
+if they aren't mutually exclusive */
+.second-level-menu ul li a:link,
+.second-level-menu ul li a:visited,
+span.verdict-unsuccessful-challenge /* unsuccessful hacking attempt */,
+span.cell-rejected /* rejected indicator on contests' standings */,
+a:not([href]):not(.rated-user),
+a:link:not(.rated-user) {
+    color: var(--genericLinkBlueColor) !important;
+}
+
+/* all visited anchor elements  */
+a:visited:not(.rated-user) {
+    color: var(--genericLinkVisitedBlueColor) !important;
+}
+
+.info /* below the blog headings */,
+.ttypography /* generic class */,
+.ttypography table,
+.ttypography h1, .ttypography h2, .ttypography h3, .ttypography h4, .ttypography h5, .ttypography h6,
+.right-meta,
+.tickLabel /* the vertical and horizontal reading values on rating graph */,
+.personal-sidebar,
+.roundbox /* almost all bordered boxes on the page */,
+#footer,
+.pagination /* at bottom of tables of /ratings */,
+#locationSelect /* country/org/city menu on top right of /ratings table */,
+#pageContent /* container for everything on the page except the topbar, sideboxes and logo */, #pageContent > div:not(:first-child),
+body.notfoundpage h3, /* notfoundpage class courtesy of JS function below */
+#facebox .content,
+.lang-chooser, /* top right country flags */
+.page-index.active,
+span#u_0_4, /* fb text like plugin */
+.menu-list-container ul li a,
+#header h3,
+/* on no connection page, only p and ul direct children are present #21 */
+body > p, body > ul
+/* #26 - score table on the right in contest page */ {
+    color: var(--whiteTextColor) !important;
+}
+
+ul.second-level-menu-list li:hover a:hover {
+    color: #014486 !important;
+}
+
+ul.second-level-menu-list li:hover a:link {
+    color: #014486 !important;
+}
+
+li.selectedLava a:link {
+    color: #014486 !important;
+}
+
+ul.second-level-menu-list:hover li:hover:not(.selectedLava) + .selectedLava a:link
+/* ul.second-level-menu-list:hover li.selectedLava:not(:hover) a:link */ {
+    color: var(--genericLinkBlueColor) !important;
+}
+
+/* for problem tags on /problemset */
+a:link.notice {
+    color: #bababa !important;
+}
+
+/* the mathjax expressions that are
+ denoted by images */
+.tex-formula {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+div ul.menu-list li a:link,
+div ul.menu-list li a:visited {
+    color: white !important;
+}
+
+/* on submissions page */
+.verdict-rejected {
+    color: lightblue !important;
+}
+
+/* hack to increase specificity */
+a.red-link[href^="/contestRegistration"] {
+    background-color: #9a0000 !important;
+    color: var(--whiteTextColor) !important;
+}
+
+/* center a to fix formatting mishap as seen on https://codeforces.com/blog/entry/63505 and other related
+ company posts */
+.topic .content center a {
+    color: var(--whiteTextColor) !important;
+}
+
+.topic .title p {
+    color: rgb(94, 146, 255) !important;
+}
+
+.caption.titled,
+.contest-state-phase {
+    color: #91a5cd !important;
+}
+
+.input pre, .output pre,
+/* embedded submissions display */
+pre.input, pre.output, pre.answer, pre.checker, pre.diagnostics {
+    color: white !important;
+}
+
+span.contest-state-regular,
+.countdown {
+    color: #bababa !important;
+}
+
+/* Datatables on Gym, Submissions, Friends list, etc.*/
+/* its background color shows up as borders of the table */
+.datatable,
+.status-frame-datatable {
+    color: var(--whiteTextColor) !important;
+    border-radius: 5px;
+    background-color: #585858 !important;
+}
+
+.datatable td.state[style^="back"] .notice {
+    color: #cccccc !important;
+}
+
+.personal-sidebar div ul.propertyLinks li:nth-child(2) span[style*="green"] {
+    color: #00c700 !important;
+}
+
+.personal-sidebar div ul.propertyLinks li:nth-child(2) span:not([style*="green"]) {
+    color: #a8a8a8 !important;
+}
+
+.fix-tag-topic-contrast span a {
+    color: white !important;
+}
+
+/* issues#6 */
+#vote-list-filterDifficultyLowerBorder li a.vote-item:hover,
+#vote-list-filterDifficultyLowerBorder {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* OTHER CHANGES */
+.roundbox {
+    border-radius: 5px;
+}
+
+.ttypography h5 {
+    font-weight: bold;
+}
+
+.roundbox-lt,
+.roundbox-lb,
+.roundbox-rt,
+.roundbox-rb,
+.datatable .lt,
+.datatable .lb,
+.datatable .rt,
+.datatable .rb,
+.datatable .ilt,
+.datatable .irt {
+    display: none !important;
+}
+
+.bottom-links {
+    border-bottom-left-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
+}
+
+.second-level-menu-list li {
+    border-radius: 5px !important;
+}
+
+td.dark span[style^="color: #0000bb;"] {
+    color: #4e9fef !important;
+}
+
+.datatable td.state a[href$="standings"] {
+    color: #8cc3f9 !important;
+}
+
+/* gym pages */
+div.setting-name {
+    color: #6c8bcc !important;
+}
+
+/* RATING COLOR CHANGES*/
+
+/* need to prefix overrides with tag name
+ precedence woes :( */
+span.user-legendary::first-letter,
+a.user-legendary::first-letter,
+span.user-admin,
+a.user-admin,
+span.user-black,
+a.user-black {
+    color: #000 !important;
+}
+
+/* tr for the rating tables page*/
+tr.user-blue td,
+span.user-blue,
+a.user-blue {
+    color: #00f !important;
+}
+
+/* for a11y contrast coloring */
+tr.user-red td,
+span.user-red,
+a.user-red,
+span.user-legendary,
+a.user-legendary {
+    color: var(--redColorJustPassesA11Y) !important;
+}
+
+tr.user-cyan td,
+span.user-cyan,
+a.user-cyan {
+    color: #01bdb2 !important;
+}
+
+tr.user-violet td,
+span.user-violet,
+a.user-violet {
+    color: #ac48f5 !important;
+}
+
+tr.user-gray td,
+span.user-gray,
+a.user-gray {
+    color: #8c8c8c !important;
+}
+
+/* ins tag in compare window of submissions */
+/* for example, goto any submission and press Compare
+https://codeforces.com/contest/1352/submission/79514097 */
+div.diffHtmlTarget pre.prettyprint del[style^="background:#ff8080"] {
+    background: #7b1313 !important;
+}
+
+div.diffHtmlTarget pre.prettyprint ins[style^="background:#80ff80"] {
+    background: #004600 !important;
+}
+div.diffHtmlTarget pre.prettyprint ins[style^="background:#80ff80"] .lit {
+    /* tone down the red tokens in the green regions, to improve color contrast */
+    background: #ff9d9d !important;
+}
