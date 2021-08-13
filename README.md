@@ -2,7 +2,11 @@
 ## Download instructions
 
 1. Install Tampermonkey for your browser. ([Instructions](https://tampermonkey.net/)).
-2. [**Click this link**](https://github.com/LordLava/codeforces-darktheme/raw/master/codeforces-darktheme.user.js) to install Codeforces dark theme userscript.
+2.
+[**Click this link (White Nutella) **](https://github.com/LordLava/codeforces-darktheme/raw/master/codeforces-darktheme.user.js) to install Codeforces dark theme userscript.
+
+[**Click this link (Black Nutella) **](https://github.com/LordLava/codeforces-darktheme/raw/master/codeforces-darktheme-darknutella.user.js) to install Codeforces dark theme userscript.
+
 3. Reload Codeforces twice.
 
 
