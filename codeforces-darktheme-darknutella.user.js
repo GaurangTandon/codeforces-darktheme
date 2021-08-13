@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Codeforces Dark mode + Dark nutella
-// @version      1.1.6
+// @version      1.1.7
 // @description  Improved dark mode for Codeforces
 // @author       Gaurang Tandon & fork by David
 // @match        https://codeforces.com/*
@@ -9,7 +9,7 @@
 // @match        https://www.facebook.com/v2.8/plugins/like.php*
 // @resource     desertCSS  https://github.com/LordLava/codeforces-darktheme/raw/master/desert.css
 // @resource     monokaiEditorTheme https://raw.githubusercontent.com/ajaxorg/ace/master/lib/ace/theme/monokai.css
-// @resource     darkthemecss https://github.com/LordLava/codeforces-darktheme/raw/dark_nutella/darktheme.css
+// @resource     darkthemecss https://github.com/LordLava/codeforces-darktheme/raw/master/darktheme_darknutella.css
 // @grant        GM_addStyle
 // @grant        GM_getResourceText
 // @run-at       document-start
