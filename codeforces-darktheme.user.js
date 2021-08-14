@@ -122,6 +122,12 @@ div.logo-plus-button {
 		});
 	})();
 
+ //   (function fixLogo() {
+	//	applyFuncWhenElmLoaded("#header > div:nth-child(1) > a > img", function (elm) {
+	//		elm.src="";
+	//	});
+	//})();
+
 	(function fixColorRedGreenContrast() {
 		if (document.readyState != "complete") {
 			return setTimeout(fixColorRedGreenContrast, 100);
