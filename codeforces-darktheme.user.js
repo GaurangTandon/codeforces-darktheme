@@ -124,7 +124,7 @@ div.logo-plus-button {
 
     (function fixLogo() {
 		applyFuncWhenElmLoaded("#header > div:nth-child(1) > a > img", function (elm) {
-			 elm.src="https://github.com/LordLava/codeforces-darktheme/raw/Beta/imgs/logo.png";
+			 elm.src="https://github.com/LordLava/codeforces-darktheme/raw/master/imgs/logo.png";
 		});
 	 })();
 

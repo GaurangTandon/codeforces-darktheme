@@ -142,6 +142,12 @@ div.logo-plus-button {
 		}
 	})();
 
+	(function fixLogo() {
+		applyFuncWhenElmLoaded("#header > div:nth-child(1) > a > img", function (elm) {
+			 elm.src="https://github.com/LordLava/codeforces-darktheme/raw/master/imgs/logo.png";
+		});
+	 })();
+
 	(function fixBlackTextInRightTableDuringContest() {
 		applyFuncWhenElmLoaded(".rtable span", function (elm) {
 			if (elm.style && elm.style.color == "rgb(0, 0, 0)"){
