@@ -155,4 +155,11 @@ div.logo-plus-button {
 			overrideStyleAttribute(elm, "color", "#004794");
 		});
 	})();
+	
+	window.addEventListener('DOMContentLoaded', (event) => {
+    document.querySelector('.table-form tbody tr:nth-child(3)').insertAdjacentHTML("beforeend", `<td><a id="f-button" style="cursor:pointer;white-space:nowrap;"><svg viewBox="0 0 24 24" width="1em" height="1em" class="icon"><path fill="#fff" fill-rule="evenodd" d="M6 15H4v5h5v-2H6v-3zM4 9h2V6h3V4H4v5zm14 9h-3v2h5v-5h-2v3zM15 4v2h3v3h2V4h-5z"></path></svg></a></td>`);
+document.getElementById("f-button").addEventListener('click',()=>{
+document.getElementById("editor").requestFullscreen();
+})
+});
 })();
