@@ -192,6 +192,10 @@ div.logo-plus-button {
 		 * @param {HTMLElement} elm 
 		 */
 		function applyBGToTestCaseLine(elm) {
+			// Color removed on hover-out by CF
+			if (elm.style.backgroundColor === '') {
+				return;
+			}
 			const expectedBgColor = '#1a1a1a';
 			// Ensure to not trigger MutObserver recursively
 			if (elm.style.backgroundColor !== expectedBgColor) {
