@@ -183,6 +183,11 @@ div.logo-plus-button {
 		/* Highlight both even and odd lines with the same color for consistency
 		with CF's behavior*/
 
+		// Behavior can be seen on
+		// 1. Single problem (https://codeforces.com/problemset/problem/1721/A)
+		// 2. Compact problemset (https://codeforces.com/contest/1721/problems)
+		const TEST_LINE_CLASS = "test-example-line";
+
 		/**
 		 * @param {HTMLElement} elm 
 		 */
@@ -204,14 +209,14 @@ div.logo-plus-button {
 		function mutationCallback(mutationList, observer) {
 			mutationList.forEach((mutation) => {
 				const target = /** @type {HTMLElement} */ (mutation.target);
-				if (target.classList.contains('.test-example-line')) {
+				if (target.classList.contains(TEST_LINE_CLASS)) {
 					applyBGToTestCaseLine(target);
 				}
 			});
 		}
 		const observer = new MutationObserver(mutationCallback);
 
-		applyFuncWhenElmLoaded(".test-example-line", function (elm) {
+		applyFuncWhenElmLoaded("." + TEST_LINE_CLASS, function (elm) {
 			observer.observe(document.body, { subtree: true, attributeFilter: ['style'] });
 		});
 	})();
