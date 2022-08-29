@@ -182,29 +182,37 @@ div.logo-plus-button {
 	(function improveTestCaseBgColor() {
 		/* Highlight both even and odd lines with the same color for consistency
 		with CF's behavior*/
-		function applyStylesToMatchingLines(numberedClass) {
-			for (const matchingElm of document.getElementsByClassName(numberedClass)) {
-				(/** @type {HTMLElement} */(matchingElm)).style.backgroundColor = '#1a1a1a';
-			}
-		}
-		/** @param {MouseEvent} event */
-		function hoverEventHandler(event) {
-			// @ts-ignore
-			if (event.target && event.target.nodeType === 1) {
-				const elm = /** @type {HTMLElement} */ (event.target);
-				if (elm.classList.contains('test-example-line')) {
-					const numberedClass = [...elm.classList].find(cls => /-\d+$/.test(cls));
-					if (numberedClass) {
-						applyStylesToMatchingLines(numberedClass);
-					}
-				}
+
+		/**
+		 * @param {HTMLElement} elm 
+		 */
+		function applyBGToTestCaseLine(elm) {
+			const expectedBgColor = '#1a1a1a';
+			// Ensure to not trigger MutObserver recursively
+			if (elm.style.backgroundColor !== expectedBgColor) {
+				elm.style.backgroundColor = expectedBgColor;
 			}
 		}
 
-		// low throttle frequency of 200 times a second, to ensure we overwrite CF's styles every time
-		document.body.addEventListener('mousemove', throttleFn(hoverEventHandler, 50));
+		/**
+		 * Only called for `style` attribute modifications
+		 * when it spots a .test-example-line.
+		 * So not an expensive callback
+		 * @param {MutationRecord[]} mutationList 
+		 * @param {MutationObserver} observer 
+		 */
+		function mutationCallback(mutationList, observer) {
+			mutationList.forEach((mutation) => {
+				const target = /** @type {HTMLElement} */ (mutation.target);
+				if (target.classList.contains('.test-example-line')) {
+					applyBGToTestCaseLine(target);
+				}
+			});
+		}
+		const observer = new MutationObserver(mutationCallback);
+
 		applyFuncWhenElmLoaded(".test-example-line", function (elm) {
-			overrideStyleAttribute(elm, "color", "#004794");
+			observer.observe(document.body, { subtree: true, attributeFilter: ['style'] });
 		});
 	})();
 })();
