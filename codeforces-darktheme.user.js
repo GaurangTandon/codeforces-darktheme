@@ -155,4 +155,56 @@ div.logo-plus-button {
 			overrideStyleAttribute(elm, "color", "#004794");
 		});
 	})();
+
+	// Throttle on both leading and trailing edge
+	function throttleFn(fn, delayMs = 100) {
+		let timeTrigger = 0, timeout = null;
+
+		return function(...args) {
+			let nowTime = Date.now();
+
+			if (nowTime - timeTrigger >= delayMs) {
+				timeTrigger = nowTime;
+				fn(...args);
+			} else {
+				if (timeout) clearTimeout(timeout);
+				let timeLeft = delayMs - (nowTime - timeTrigger);
+				timeout = setTimeout(() => {
+					timeout = null;
+					fn(...args);
+				}, timeLeft);
+			}
+		};
+	}
+
+	// The style is applied to multiple matching test-lines, hence cannot override
+	// via CSS because there is no regex-based selector.
+	(function improveTestCaseBgColor() {
+		/* Highlight both even and odd lines with the same color for consistency
+		with CF's behavior*/
+		function applyStylesToMatchingLines(numberedClass) {
+			for (const matchingElm of document.getElementsByClassName(numberedClass)) {
+				(/** @type {HTMLElement} */(matchingElm)).style.backgroundColor = '#1a1a1a';
+			}
+		}
+		/** @param {MouseEvent} event */
+		function hoverEventHandler(event) {
+			// @ts-ignore
+			if (event.target && event.target.nodeType === 1) {
+				const elm = /** @type {HTMLElement} */ (event.target);
+				if (elm.classList.contains('test-example-line')) {
+					const numberedClass = [...elm.classList].find(cls => /-\d+$/.test(cls));
+					if (numberedClass) {
+						applyStylesToMatchingLines(numberedClass);
+					}
+				}
+			}
+		}
+
+		// low throttle frequency of 200 times a second, to ensure we overwrite CF's styles every time
+		document.body.addEventListener('mousemove', throttleFn(hoverEventHandler, 50));
+		applyFuncWhenElmLoaded(".test-example-line", function (elm) {
+			overrideStyleAttribute(elm, "color", "#004794");
+		});
+	})();
 })();

@@ -264,13 +264,6 @@ textarea[name="output"],
     background-color: #444;
 }
 
-.problem-statement .test-example-line:hover {
-    /* Highlight both even and odd lines with the same color for consistency
-       with CF's behavior*/
-    /* Need to use !important because CF modifies the color in element-style property */
-    background-color: #1a1a1a !important;
-}
-
 /* TEXT COLOR CHANGES */
 
 /* the error that appears when you try to submit binary data (like pdf)
