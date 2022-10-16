@@ -189,17 +189,20 @@ div.logo-plus-button {
 		const TEST_LINE_CLASS = "test-example-line";
 
 		/**
-		 * @param {HTMLElement} elm 
+		 * @param {HTMLElement} elm
 		 */
 		function applyBGToTestCaseLine(elm) {
+      const prop = 'cssText', value = 'background-color: rgb(26, 26, 26) !important;';
 			// Color removed on hover-out by CF
-			if (elm.style.backgroundColor === '') {
+			if (elm.style[prop] === '') {
 				return;
 			}
-			const expectedBgColor = '#1a1a1a';
 			// Ensure to not trigger MutObserver recursively
-			if (elm.style.backgroundColor !== expectedBgColor) {
-				elm.style.backgroundColor = expectedBgColor;
+			// Don't match the exact value in case different browsers
+			// stringify the cssText differently
+			if (!elm.style[prop].includes('(26') && !elm.style[prop].includes('#1a')) {
+				// Doesn't include both rgb(26,26,26) and #1a1a1a
+				elm.style[prop] = value;
 			}
 		}
 
@@ -207,8 +210,8 @@ div.logo-plus-button {
 		 * Only called for `style` attribute modifications
 		 * when it spots a .test-example-line.
 		 * So not an expensive callback
-		 * @param {MutationRecord[]} mutationList 
-		 * @param {MutationObserver} observer 
+		 * @param {MutationRecord[]} mutationList
+		 * @param {MutationObserver} observer
 		 */
 		function mutationCallback(mutationList, observer) {
 			mutationList.forEach((mutation) => {

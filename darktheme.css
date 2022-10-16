@@ -258,10 +258,10 @@ textarea[name="output"],
     opacity: 0.7 !important;
 }
 
-/* new feature that higlights different test cases in problem page
+/* new feature that highlights different test cases in problem page
    https://codeforces.com/problemset/problem/1721/A */
 .problem-statement .test-example-line-even {
-    background-color: #444;
+    background-color: #444 !important;
 }
 
 /* TEXT COLOR CHANGES */
